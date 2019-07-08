@@ -4,6 +4,8 @@
      <form @submit.prevent="addLocation">
          <label>Location:</label>
          <input type="text" class="form-control" v-model="query.location">
+         <label>Date:</label>
+         <input type="text" class="form-control" v-model="query.date">
          <div class="form-group">
           <button class="btn btn-primary">Submit</button>
         </div>
@@ -31,7 +33,7 @@ export default {
     methods: {
         addLocation(){
             // eslint-disable-next-line
-            console.log(this.query.location);
+            console.log(this.query);
         }
     }
 }
