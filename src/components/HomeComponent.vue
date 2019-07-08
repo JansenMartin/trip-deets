@@ -48,7 +48,22 @@ export default {
             }
             })
             .then((response) => {
-                console.log(response);
+                // console.log("Latitude:");
+                // console.log(response.data[0].lat);
+                // console.log("Longitude:");
+                // console.log(response.data[0].lon);
+                this.axios.get('https://us1.locationiq.com/v1/reverse.php', {
+                    params: {
+                        key: key,
+                        lon: response.data[0].lon,
+                        lat: response.data[0].lat,
+                        format: "json"
+                    }
+                })
+                .then((reverse) => {
+                    console.log("Inside the nested call");
+                    console.log(reverse.data.address.city);
+                })
             })
             .catch((error) => {
                 console.log(error);
