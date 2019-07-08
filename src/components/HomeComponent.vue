@@ -32,8 +32,28 @@ export default {
     },
     methods: {
         addLocation(){
-            // eslint-disable-next-line
-            console.log(this.query);
+            /* eslint-disable */
+            // console.log(this.query);
+
+            const key = process.env.VUE_APP_SECRET;
+            console.log("Inside HomeComponent:");
+            console.log(key);
+            let getURL = 'https://us1.locationiq.com/v1/search.php';
+
+            this.axios.get(getURL, {
+            params: {
+              key: key,
+              q: this.query.location,
+              format: "json"
+            }
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
         }
     }
 }

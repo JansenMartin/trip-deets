@@ -18,6 +18,7 @@
 
 <script>
 // import HomeComponent from './components/HomeComponent.vue'
+// eslint-disable-next-line
 
 export default {
   name: 'app',

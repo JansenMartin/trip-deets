@@ -8,6 +8,11 @@ Vue.use(VueRouter);
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
+require('dotenv').config();
+/* eslint-disable */
+// console.log("The env key should be here:");
+// console.log(process.env.VUE_APP_SECRET);
+
 Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
