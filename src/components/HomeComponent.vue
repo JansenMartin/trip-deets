@@ -50,7 +50,7 @@ export default {
             this.axios.get(getLocationURL, {
             params: {
               key: locationKey,
-              q: this.query.location,
+              q: location,
               format: "json"
             }
             })
