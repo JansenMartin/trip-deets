@@ -68,7 +68,7 @@ export default {
                 this.axios.get(getWeatherURL)
                 .then((weather) => {
 
-                    this.coolFunc(weather);
+                    this.isolateConditions(weather);
                 })
             })
             .catch((error) => {
@@ -76,31 +76,30 @@ export default {
             })
 
         },
-        coolFunc(weather) {
+        isolateConditions(weather) {
             console.log("**********I'm a helper function!");
 
-                const result = eachDay(
-            new Date(2014, 9, 6),
-            new Date(2014, 9, 10)
-            )
 
-            console.log(result);
-
-
-            // const day = weather.data.daily.data[0];
+            const day = weather.data.daily.data[0];
             // console.log(day);
 
-            // console.log(`Today's weather: ${day.icon}`);
-            // console.log("Temp High:")
-            // console.log(day.apparentTemperatureHigh);
-            // console.log("Temp Low");
-            // console.log(day.apparentTemperatureLow);
-
+            console.log(`Today's weather: ${day.icon}`);
+            console.log("Temp High:")
+            console.log(day.apparentTemperatureHigh);
+            console.log("Temp Low");
+            console.log(day.apparentTemperatureLow);
             
-            // console.log("Daily:")
-            // console.log(weather.data.daily);
-            // console.log("Currently:")
-            // console.log(weather.data.currently);
+        },
+        parseDateRange() {
+          // This needs to return an array of UNIX times!!
+
+          const result = eachDay(
+            new Date(2014, 9, 6),
+            new Date(2014, 9, 10)
+          )
+
+          console.log(result);
+
         }
     }
 }
