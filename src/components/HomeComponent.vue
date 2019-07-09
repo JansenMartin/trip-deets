@@ -79,12 +79,7 @@ export default {
         coolFunc(weather) {
             console.log("**********I'm a helper function!");
 
-            // console.log(dateFns.eachDay(
-            //     new Date(2019, 03, 08),
-            //     new Date(2019, 03, 28)
-            // ));
-
-                let result = eachDay(
+                const result = eachDay(
             new Date(2014, 9, 6),
             new Date(2014, 9, 10)
             )
