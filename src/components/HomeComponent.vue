@@ -79,26 +79,42 @@ export default {
         isolateConditions(weather) {
             console.log("**********I'm a helper function!");
 
+            this.parseDateRange();
 
-            const day = weather.data.daily.data[0];
-            // console.log(day);
 
-            console.log(`Today's weather: ${day.icon}`);
-            console.log("Temp High:")
-            console.log(day.apparentTemperatureHigh);
-            console.log("Temp Low");
-            console.log(day.apparentTemperatureLow);
-            
+            // const day = weather.data.daily.data[0];
+            // // console.log(day);
+
+            // console.log(`Today's weather: ${day.icon}`);
+            // console.log("Temp High:")
+            // console.log(day.apparentTemperatureHigh);
+            // console.log("Temp Low");
+            // console.log(day.apparentTemperatureLow);
+
         },
         parseDateRange() {
           // This needs to return an array of UNIX times!!
 
-          const result = eachDay(
+        //   const dateRange = eachDay(
+        //     new Date(2014, 9, 6),
+        //     new Date(2014, 9, 10)
+        //   )
+
+        //   unixTimes = dateRange.map
+
+        const unixDates = eachDay(
             new Date(2014, 9, 6),
             new Date(2014, 9, 10)
-          )
+          ).map((date) =>  {
+              return Date.parse(date);
+          });
 
-          console.log(result);
+          console.log(unixDates);
+
+        //   console.log(eachDay(
+        //     new Date(2014, 9, 6),
+        //     new Date(2014, 9, 10)
+        //   ));
 
         }
     }
