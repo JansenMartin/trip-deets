@@ -35,14 +35,12 @@ export default {
             /* eslint-disable */
             let parsedDate = Date.parse(this.query.date);
             parsedDate = parsedDate / 10000
-            // console.log(parsedDate);
 
             const locationKey = process.env.VUE_APP_LOCATION;
             const skyKey = process.env.VUE_APP_SKY;
             let getLocationURL = 'https://us1.locationiq.com/v1/search.php';
 
             // NESTED API CALLS (LocationIQ and Dark Sky)
-
             // Find latitude and longitude for a given place
             this.axios.get(getLocationURL, {
             params: {
@@ -52,11 +50,7 @@ export default {
             }
             })
             .then((response) => {
-                // console.log("Latitude:");
-                // console.log(response.data[0].lat);
-                // console.log("Longitude:");
-                // console.log(response.data[0].lon);
-
+      
                 const lat = response.data[0].lat;
                 const lon = response.data[0].lon;
 
