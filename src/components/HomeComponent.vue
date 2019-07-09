@@ -24,6 +24,10 @@
   </div> -->
 </template>
 <script>
+ /* eslint-disable */
+import { W_OK } from 'constants';
+import { format, formatDistance, formatRelative, subDays, eachDay } from 'date-fns'
+
 export default {
     data(){
         return {
@@ -32,7 +36,6 @@ export default {
     },
     methods: {
         getWeather(){
-            /* eslint-disable */
             const date = this.query.date;
             const location = this.query.location;
 
@@ -64,12 +67,8 @@ export default {
                 // Get weather based on latitude and longitude
                 this.axios.get(getWeatherURL)
                 .then((weather) => {
-                    console.log("Inside the nested call");
-                    console.log("Daily:")
-                    console.log(weather.data.daily);
-                    console.log("Currently:")
-                    console.log(weather.data.currently);
-                    this.coolFunc();
+
+                    this.coolFunc(weather);
                 })
             })
             .catch((error) => {
@@ -77,8 +76,36 @@ export default {
             })
 
         },
-        coolFunc() {
+        coolFunc(weather) {
             console.log("**********I'm a helper function!");
+
+            // console.log(dateFns.eachDay(
+            //     new Date(2019, 03, 08),
+            //     new Date(2019, 03, 28)
+            // ));
+
+                let result = eachDay(
+            new Date(2014, 9, 6),
+            new Date(2014, 9, 10)
+            )
+
+            console.log(result);
+
+
+            // const day = weather.data.daily.data[0];
+            // console.log(day);
+
+            // console.log(`Today's weather: ${day.icon}`);
+            // console.log("Temp High:")
+            // console.log(day.apparentTemperatureHigh);
+            // console.log("Temp Low");
+            // console.log(day.apparentTemperatureLow);
+
+            
+            // console.log("Daily:")
+            // console.log(weather.data.daily);
+            // console.log("Currently:")
+            // console.log(weather.data.currently);
         }
     }
 }
