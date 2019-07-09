@@ -55,7 +55,6 @@ export default {
                 const lon = response.data[0].lon;
                 const tempProxy = 'https://cors-anywhere.herokuapp.com/';
                 const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`;
-                // `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`
 
                 // Get weather based on latitude and longitude
                 this.axios.get(getWeatherURL)
