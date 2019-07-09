@@ -1,7 +1,7 @@
 <template>
  <div>
      <p>Hello</p>
-     <form @submit.prevent="addLocation">
+     <form @submit.prevent="getWeather">
          <label>Location:</label>
          <input type="text" class="form-control" v-model="query.location">
          <label>Date:</label>
@@ -31,7 +31,7 @@ export default {
         }
     },
     methods: {
-        addLocation(){
+        getWeather(){
             /* eslint-disable */
             // console.log(this.query);
             console.log(this.query.date);
@@ -55,19 +55,23 @@ export default {
                 console.log(response.data[0].lat);
                 console.log("Longitude:");
                 console.log(response.data[0].lon);
-                this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616`)
+                this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616,${parsedDate}`)
                 .then((reverse) => {
                     console.log("Inside the nested call");
                     console.log("Daily:")
                     console.log(reverse.data.daily);
                     console.log("Currently:")
                     console.log(reverse.data.currently);
+                    this.coolFunc();
                 })
             })
             .catch((error) => {
                 console.log(error);
             })
 
+        },
+        coolFunc() {
+            console.log("**********I'm a helper function!");
         }
     }
 }
