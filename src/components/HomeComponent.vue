@@ -33,15 +33,20 @@ export default {
     methods: {
         getWeather(){
             /* eslint-disable */
+            const date = this.query.date;
+            const location = this.query.location;
+
+            // Set date to UNIX time (in a format Dark Sky accepts)
             let parsedDate = Date.parse(this.query.date);
             parsedDate = parsedDate / 10000
 
+            // API Keys
             const locationKey = process.env.VUE_APP_LOCATION;
             const skyKey = process.env.VUE_APP_SKY;
-            const getLocationURL = 'https://us1.locationiq.com/v1/search.php';
 
             // NESTED API CALLS (LocationIQ and Dark Sky)
             // Find latitude and longitude for a given place
+            const getLocationURL = 'https://us1.locationiq.com/v1/search.php';
             this.axios.get(getLocationURL, {
             params: {
               key: locationKey,
