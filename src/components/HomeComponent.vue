@@ -38,7 +38,7 @@ export default {
 
             const locationKey = process.env.VUE_APP_LOCATION;
             const skyKey = process.env.VUE_APP_SKY;
-            let getLocationURL = 'https://us1.locationiq.com/v1/search.php';
+            const getLocationURL = 'https://us1.locationiq.com/v1/search.php';
 
             // NESTED API CALLS (LocationIQ and Dark Sky)
             // Find latitude and longitude for a given place
@@ -53,9 +53,12 @@ export default {
       
                 const lat = response.data[0].lat;
                 const lon = response.data[0].lon;
+                const tempProxy = 'https://cors-anywhere.herokuapp.com/';
+                const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`;
+                // `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`
 
                 // Get weather based on latitude and longitude
-                this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`)
+                this.axios.get(getWeatherURL)
                 .then((weather) => {
                     console.log("Inside the nested call");
                     console.log("Daily:")
