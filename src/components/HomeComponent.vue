@@ -57,12 +57,12 @@ export default {
                 console.log("Longitude:");
                 console.log(response.data[0].lon);
                 this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616,${parsedDate}`)
-                .then((reverse) => {
+                .then((weather) => {
                     console.log("Inside the nested call");
                     console.log("Daily:")
-                    console.log(reverse.data.daily);
+                    console.log(weather.data.daily);
                     console.log("Currently:")
-                    console.log(reverse.data.currently);
+                    console.log(weather.data.currently);
                     this.coolFunc();
                 })
             })
