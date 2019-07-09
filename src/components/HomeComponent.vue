@@ -66,11 +66,10 @@ export default {
                 this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616`)
                 .then((reverse) => {
                     console.log("Inside the nested call");
-                    console.log(reverse.data.currently.summary);
+                    console.log(reverse.data.currently);
                 })
             })
             .catch((error) => {
-                console.log("HMMMMM, didn't work");
                 console.log(error);
             })
 
