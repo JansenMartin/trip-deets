@@ -43,6 +43,7 @@ export default {
             const skyKey = process.env.VUE_APP_SKY;
             let getLocationURL = 'https://us1.locationiq.com/v1/search.php';
 
+            // Find latitude and longitude for a given place
             this.axios.get(getLocationURL, {
             params: {
               key: locationKey,
