@@ -63,7 +63,7 @@ export default {
                 //     console.log("Inside the nested call");
                 //     console.log(reverse.data.address.city);
                 // })
-                this.axios.get(`https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616`)
+                this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616`)
                 .then((reverse) => {
                     console.log("Inside the nested call");
                     console.log(reverse.data.currently.summary);
