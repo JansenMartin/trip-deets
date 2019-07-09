@@ -33,15 +33,15 @@ export default {
     methods: {
         getWeather(){
             /* eslint-disable */
-            // console.log(this.query);
-            console.log(this.query.date);
             let parsedDate = Date.parse(this.query.date);
             parsedDate = parsedDate / 10000
-            console.log(parsedDate);
+            // console.log(parsedDate);
 
             const locationKey = process.env.VUE_APP_LOCATION;
             const skyKey = process.env.VUE_APP_SKY;
             let getLocationURL = 'https://us1.locationiq.com/v1/search.php';
+
+            // NESTED API CALLS (LocationIQ and Dark Sky)
 
             // Find latitude and longitude for a given place
             this.axios.get(getLocationURL, {
@@ -52,11 +52,16 @@ export default {
             }
             })
             .then((response) => {
-                console.log("Latitude:");
-                console.log(response.data[0].lat);
-                console.log("Longitude:");
-                console.log(response.data[0].lon);
-                this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616,${parsedDate}`)
+                // console.log("Latitude:");
+                // console.log(response.data[0].lat);
+                // console.log("Longitude:");
+                // console.log(response.data[0].lon);
+
+                const lat = response.data[0].lat;
+                const lon = response.data[0].lon;
+
+                // Get weather based on latitude and longitude
+                this.axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`)
                 .then((weather) => {
                     console.log("Inside the nested call");
                     console.log("Daily:")
