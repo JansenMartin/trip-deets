@@ -35,14 +35,13 @@ export default {
             /* eslint-disable */
             // console.log(this.query);
 
-            const key = process.env.VUE_APP_SECRET;
-            console.log("Inside HomeComponent:");
-            console.log(key);
-            let getURL = 'https://us1.locationiq.com/v1/search.php';
+            const locationKey = process.env.VUE_APP_LOCATION;
+            const skyKey = process.env.VUE_APP_SKY;
+            let getLocationURL = 'https://us1.locationiq.com/v1/search.php';
 
-            this.axios.get(getURL, {
+            this.axios.get(getLocationURL, {
             params: {
-              key: key,
+              key: locationKey,
               q: this.query.location,
               format: "json"
             }
@@ -52,20 +51,26 @@ export default {
                 console.log(response.data[0].lat);
                 console.log("Longitude:");
                 console.log(response.data[0].lon);
-                this.axios.get('https://us1.locationiq.com/v1/reverse.php', {
-                    params: {
-                        key: key,
-                        lon: response.data[0].lon,
-                        lat: response.data[0].lat,
-                        format: "json"
-                    }
-                })
+                // this.axios.get('https://us1.locationiq.com/v1/reverse.php', {
+                //     params: {
+                //         key: key,
+                //         lon: response.data[0].lon,
+                //         lat: response.data[0].lat,
+                //         format: "json"
+                //     }
+                // })
+                // .then((reverse) => {
+                //     console.log("Inside the nested call");
+                //     console.log(reverse.data.address.city);
+                // })
+                this.axios.get(`https://api.darksky.net/forecast/${skyKey}/48.8566969,2.3514616`)
                 .then((reverse) => {
                     console.log("Inside the nested call");
-                    console.log(reverse.data.address.city);
+                    console.log(reverse.data.currently.summary);
                 })
             })
             .catch((error) => {
+                console.log("HMMMMM, didn't work");
                 console.log(error);
             })
 
