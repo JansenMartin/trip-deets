@@ -38,11 +38,11 @@ export default {
     },
     methods: {
         getWeather(unixDates){
-            console.log("Inside getWeather function!");
-            console.log(`My location: ${this.query.location}`);
-            console.log(unixDates);
+            // console.log("Inside getWeather function!");
+            // console.log(`My location: ${this.query.location}`);
+            // console.log(unixDates);
             // const date = this.query.date;
-            // const location = this.query.location;
+            const location = this.query.location;
 
             // // Set date to UNIX time (in a format Dark Sky accepts)
             // let parsedDate = Date.parse(this.query.date);
@@ -52,39 +52,57 @@ export default {
             const locationKey = process.env.VUE_APP_LOCATION;
             const skyKey = process.env.VUE_APP_SKY;
 
-            // // NESTED API CALLS (LocationIQ and Dark Sky)
-            // // Find latitude and longitude for a given place
-            // const getLocationURL = 'https://us1.locationiq.com/v1/search.php';
-            // this.axios.get(getLocationURL, {
-            // params: {
-            //   key: locationKey,
-            //   q: location,
-            //   format: "json"
-            // }
-            // })
-            // .then((response) => {
+            // NESTED API CALLS (LocationIQ and Dark Sky)
+            // Find latitude and longitude for a given place
+            const getLocationURL = 'https://us1.locationiq.com/v1/search.php';
+            this.axios.get(getLocationURL, {
+            params: {
+              key: locationKey,
+              q: location,
+              format: "json"
+            }
+            })
+            .then((response) => {
       
-            //     const lat = response.data[0].lat;
-            //     const lon = response.data[0].lon;
-            //     const tempProxy = 'https://cors-anywhere.herokuapp.com/';
-            //     const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`;
+                // console.log(unixDates);
+                 console.log("We got the location info!");
+                const lat = response.data[0].lat;
+                const lon = response.data[0].lon;
+                const tempProxy = 'https://cors-anywhere.herokuapp.com/';
+                // const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`;
 
-            //     // Get weather based on latitude and longitude
-            //     this.axios.get(getWeatherURL)
-            //     .then((weather) => {
+                for (let i = 0; i < unixDates.length; i += 1) {
+                    const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${unixDates[i]}`;
+                    // Get weather based on latitude and longitude
+                    this.axios.get(getWeatherURL)
+                    .then((weather) => {
 
-            //         this.isolateConditions(weather);
-            //     })
-            // })
+                        this.isolateConditions(weather);
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    })
+                };
+
+                // console.log(i);
+
+                // // Get weather based on latitude and longitude
+                // this.axios.get(getWeatherURL)
+                // .then((weather) => {
+
+                //     this.isolateConditions(weather);
+                // })
+            })
             // .catch((error) => {
             //     console.log(error);
             // })
 
         },
         isolateConditions(weather) {
-            console.log("**********I'm a helper function!");
+            console.log('***************');
+            console.log(weather);
 
-            this.parseDateRange();
+            // this.parseDateRange();
 
 
             // const day = weather.data.daily.data[0];
