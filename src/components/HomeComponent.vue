@@ -120,7 +120,7 @@ export default {
             new Date(fromDate.year, fromDate.month, fromDate.day),
             new Date(untilDate.year, untilDate.month, untilDate.day)
           ).map((date) =>  {
-              return Date.parse(date);
+              return Date.parse(date) / 10000;
           });
 
 
