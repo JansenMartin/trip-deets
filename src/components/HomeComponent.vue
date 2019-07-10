@@ -4,7 +4,9 @@
      <form @submit.prevent="getWeather">
          <label>Location:</label>
          <input type="text" class="form-control" v-model="query.location">
-         <label>Date:</label>
+         <label>From:</label>
+         <input type="text" class="form-control" v-model="query.date">
+         <label>Until:</label>
          <input type="text" class="form-control" v-model="query.date">
          <div class="form-group">
           <button class="btn btn-primary">Submit</button>
