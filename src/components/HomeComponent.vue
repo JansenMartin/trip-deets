@@ -105,14 +105,14 @@ export default {
             // this.parseDateRange();
 
 
-            // const day = weather.data.daily.data[0];
+            const day = weather.data.daily.data[0];
             // // console.log(day);
 
-            // console.log(`Today's weather: ${day.icon}`);
-            // console.log("Temp High:")
-            // console.log(day.apparentTemperatureHigh);
-            // console.log("Temp Low");
-            // console.log(day.apparentTemperatureLow);
+            console.log(`Today's weather: ${day.icon}`);
+            console.log("Temp High:")
+            console.log(day.apparentTemperatureHigh);
+            console.log("Temp Low");
+            console.log(day.apparentTemperatureLow);
 
         },
         parseDateRange() {
