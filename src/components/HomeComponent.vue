@@ -97,8 +97,32 @@ export default {
         parseDateRange() {
 
         console.log("INSIDE PARSEDATERANGE:");
-        console.log(this.query.from);
-        console.log(this.query.until);
+        // console.log(this.query.from);
+        // console.log(this.query.until);
+        // console.log(this.query.from.split('-'));
+
+        const fromDate = { 
+            month: this.query.from.split('-')[0],
+            day: this.query.from.split('-')[1],
+            year: this.query.from.split('-')[2]
+            };
+
+        const untilDate = { 
+            month: this.query.until.split('-')[0],
+            day: this.query.until.split('-')[1],
+            year: this.query.until.split('-')[2]
+            };
+
+        // console.log(fromDate);
+        // console.log(untilDate);
+
+        const unixDates = eachDay(
+            new Date(fromDate.year, fromDate.month, fromDate.day),
+            new Date(untilDate.year, untilDate.month, untilDate.day)
+          ).map((date) =>  {
+              return Date.parse(date);
+          });
+
 
         // const unixDates = eachDay(
         //     new Date(2014, 9, 6),
@@ -107,7 +131,7 @@ export default {
         //       return Date.parse(date);
         //   });
 
-        //   console.log(unixDates);
+          console.log(unixDates);
 
         }
     }
