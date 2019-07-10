@@ -1,5 +1,6 @@
 <template>
 <div class="container">
+  <p><OAuth provider="github" /></p>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -9,7 +10,7 @@
           <router-link to="" class="nav-link">Log In</router-link>
         </li>
         <li>
-          <OAuth provider="github" />
+          <!-- <OAuth provider="github" /> -->
         </li>
       </ul>
     </nav><br />

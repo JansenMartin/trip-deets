@@ -17,6 +17,7 @@ export default {
   },
   methods: {
     Auth() {
+    OAuth.initialize('gwBeKj4tkaHLFf7q0fcYIlbj2as');
     OAuth.popup(this.provider)
     .done(res => {
         console.log(res);
@@ -33,9 +34,9 @@ export default {
 </script>
 
 <style>
-/* 
-@import "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/css/bootstrap.css";
+
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/css/bootstrap.css"; */
 @import "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css";
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"; */
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
 </style>
