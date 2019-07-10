@@ -48,9 +48,9 @@ export default {
             // let parsedDate = Date.parse(this.query.date);
             // parsedDate = parsedDate / 10000
 
-            // // API Keys
-            // const locationKey = process.env.VUE_APP_LOCATION;
-            // const skyKey = process.env.VUE_APP_SKY;
+            // API Keys
+            const locationKey = process.env.VUE_APP_LOCATION;
+            const skyKey = process.env.VUE_APP_SKY;
 
             // // NESTED API CALLS (LocationIQ and Dark Sky)
             // // Find latitude and longitude for a given place
