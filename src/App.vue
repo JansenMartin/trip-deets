@@ -8,6 +8,9 @@
         <li class="nav-item">
           <router-link to="" class="nav-link">Log In</router-link>
         </li>
+        <!-- <li>
+          <OAuth provider="github" />
+        </li> -->
       </ul>
     </nav><br />
     <transition name="fade">
@@ -23,7 +26,7 @@
 export default {
   name: 'app',
   // components: {
-  //   HomeComponent
+  //   OAuth
   // }
 }
 </script>
