@@ -20,8 +20,8 @@ export default {
     OAuth.initialize('gwBeKj4tkaHLFf7q0fcYIlbj2as');
     OAuth.popup(this.provider)
     .done(response => {
-        console.log(response);
-    // console.log(res.access\_token);
+        console.log(`It worked!  The provider is ${this.provider}`)
+        console.log(response.access_token);
     })
     .fail(error => {
  //todo when the OAuth flow failed
@@ -31,6 +31,14 @@ export default {
    },
   }
 };
+
+// OAuth.popup(provider).then(function(oauthResult) {
+//   return oauthResult.get('/me');
+// }).then(function(data) {
+//   // data is the result of the request to /me
+// }).fail(function(err) {
+//   // handle an error
+// });
 </script>
 
 <style>
