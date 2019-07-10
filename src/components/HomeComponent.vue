@@ -38,10 +38,6 @@ export default {
     },
     methods: {
         getWeather(unixDates){
-            // console.log("Inside getWeather function!");
-            // console.log(`My location: ${this.query.location}`);
-            // console.log(unixDates);
-            // const date = this.query.date;
             const location = this.query.location;
 
             // // Set date to UNIX time (in a format Dark Sky accepts)
@@ -69,7 +65,6 @@ export default {
                 const lat = response.data[0].lat;
                 const lon = response.data[0].lon;
                 const tempProxy = 'https://cors-anywhere.herokuapp.com/';
-                // const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${parsedDate}`;
 
                 for (let i = 0; i < unixDates.length; i += 1) {
                     const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${unixDates[i]}`;
@@ -83,30 +78,13 @@ export default {
                       console.log(error);
                     })
                 };
-
-                // console.log(i);
-
-                // // Get weather based on latitude and longitude
-                // this.axios.get(getWeatherURL)
-                // .then((weather) => {
-
-                //     this.isolateConditions(weather);
-                // })
             })
-            // .catch((error) => {
-            //     console.log(error);
-            // })
-
         },
         isolateConditions(weather) {
             console.log('***************');
             console.log(weather);
 
-            // this.parseDateRange();
-
-
             const day = weather.data.daily.data[0];
-            // // console.log(day);
 
             console.log(`Today's weather: ${day.icon}`);
             console.log("Temp High:")
@@ -131,23 +109,12 @@ export default {
             year: this.query.until.split('-')[2]
             };
 
-        // console.log(fromDate);
-        // console.log(untilDate);
-
         const unixDates = eachDay(
             new Date(fromDate.year, fromDate.month, fromDate.day),
             new Date(untilDate.year, untilDate.month, untilDate.day)
           ).map((date) =>  {
               return Date.parse(date) / 10000;
           });
-
-
-        // const unixDates = eachDay(
-        //     new Date(2014, 9, 6),
-        //     new Date(2014, 9, 10)
-        //   ).map((date) =>  {
-        //       return Date.parse(date);
-        //   });
 
           console.log(unixDates);
           this.getWeather(unixDates);
