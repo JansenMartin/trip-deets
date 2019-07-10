@@ -19,14 +19,14 @@ export default {
     Auth() {
     OAuth.initialize('gwBeKj4tkaHLFf7q0fcYIlbj2as');
     OAuth.popup(this.provider)
-    .done(res => {
-        console.log(res);
+    .done(response => {
+        console.log(response);
     // console.log(res.access\_token);
     })
-    .fail(err => {
+    .fail(error => {
  //todo when the OAuth flow failed
     console.log("It didn't work....");
-    console.log(err);
+    console.log(error);
    });
    },
   }
