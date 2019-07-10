@@ -8,9 +8,9 @@
         <li class="nav-item">
           <router-link to="" class="nav-link">Log In</router-link>
         </li>
-        <!-- <li>
+        <li>
           <OAuth provider="github" />
-        </li> -->
+        </li>
       </ul>
     </nav><br />
     <transition name="fade">
@@ -20,14 +20,15 @@
 </template>
 
 <script>
+import OAuth from "./components/OAuth";
 // import HomeComponent from './components/HomeComponent.vue'
 // eslint-disable-next-line
 
 export default {
   name: 'app',
-  // components: {
-  //   OAuth
-  // }
+  components: {
+    OAuth
+  }
 }
 </script>
 

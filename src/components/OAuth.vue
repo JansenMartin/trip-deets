@@ -5,6 +5,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { OAuth } from "oauthio-web";
 export default {
   props: ["provider"],
@@ -18,10 +19,12 @@ export default {
     Auth() {
     OAuth.popup(this.provider)
     .done(res => {
-    console.log(res.access\_token);
+        console.log(res);
+    // console.log(res.access\_token);
     })
     .fail(err => {
  //todo when the OAuth flow failed
+    console.log(err);
    });
    }
   }
