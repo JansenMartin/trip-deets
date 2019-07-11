@@ -2,8 +2,8 @@
  <div>
      <!-- <p>Hello</p> -->
      <form @submit.prevent="parseDateRange">
-         <label>Location:</label>
-         <input type="text" class="form-control" v-model="query.location">
+         <label>Enter Destination:</label>
+         <input type="text" class="form-control" id="destination-input" v-model="query.location">
          <label>From:</label>
          <input type="text" class="form-control" v-model="query.from">
          <label>Until:</label>
@@ -126,6 +126,18 @@ export default {
 
 <style>
 .btn-primary {
+    margin-top: 1em;
+}
+
+#destination-input {
+    max-width: 40%;
+}
+
+.form-control {
+    max-width: 20%;
+}
+
+label {
     margin-top: 1em;
 }
 </style>
