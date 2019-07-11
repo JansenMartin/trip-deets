@@ -4,10 +4,12 @@
      <form @submit.prevent="parseDateRange">
          <label>Enter Destination:</label>
          <input type="text" class="form-control" id="destination-input" v-model="query.location">
+         <section class="dates-input">
          <label>From:</label>
          <input type="text" class="form-control" v-model="query.from">
          <label>Until:</label>
          <input type="text" class="form-control" v-model="query.until">
+         </section>
          <div class="form-group">
           <button class="btn btn-primary">Submit</button>
         </div>
