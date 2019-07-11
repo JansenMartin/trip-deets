@@ -1,16 +1,17 @@
 <template>
 <div class="container">
   <!-- <p><OAuth provider="github" /></p> -->
-   <header>Trip Deets!!</header>
+   <header>
+     <h1>Trip Deets</h1>
+     </header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
-        <!-- <li class="nav-item">
-          <router-link to="" class="nav-link">Log In</router-link>
-        </li> -->
+
         <li class="nav-item">
+          <!-- OAuth Component!! -->
           <OAuth provider="github" />
         </li>
       </ul>
