@@ -1,6 +1,6 @@
 <template>
  <div>
-     <p>Hello</p>
+     <!-- <p>Hello</p> -->
      <form @submit.prevent="parseDateRange">
          <label>Location:</label>
          <input type="text" class="form-control" v-model="query.location">
@@ -123,3 +123,15 @@ export default {
     }
 }
 </script>
+
+<style>
+.btn-primary {
+    margin-top: 1em;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px; */
+}
+</style>
