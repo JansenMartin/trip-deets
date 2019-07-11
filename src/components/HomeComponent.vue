@@ -63,7 +63,8 @@ export default {
             .then((response) => {
       
                 // console.log(unixDates);
-                 console.log("We got the location info!");
+                //  console.log("We got the location info!");
+                console.log(`********* WEATHER REPORT FOR: ${location} *********`)
                 const lat = response.data[0].lat;
                 const lon = response.data[0].lon;
                 const tempProxy = 'https://cors-anywhere.herokuapp.com/';
@@ -73,7 +74,6 @@ export default {
                     // Get weather based on latitude and longitude
                     this.axios.get(getWeatherURL)
                     .then((weather) => {
-
                         this.isolateConditions(weather);
                     })
                     .catch((error) => {
@@ -97,7 +97,7 @@ export default {
         },
         parseDateRange() {
 
-        console.log("INSIDE PARSEDATERANGE:");
+        // console.log("INSIDE PARSEDATERANGE:");
 
         const fromDate = { 
             // Subtract 1 from month (because JavaScript counts months from 0)
@@ -120,7 +120,7 @@ export default {
               return Date.parse(date) / 1000;
           });
 
-          console.log(unixDates);
+        //   console.log(unixDates);
           this.getWeather(unixDates);
 
         }
