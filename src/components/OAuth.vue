@@ -18,20 +18,28 @@ export default {
   methods: {
     Auth() {
    OAuth.initialize('gwBeKj4tkaHLFf7q0fcYIlbj2as');
+
+   OAuth.popup(this.provider).then((provider) => {
+      return provider.me()
+    }).then((me) => {
+      console.log('Hello there, ' + me.name)
+    }).fail((error) => {
+      console.error(error)
+    });
     // const res = OAuth.create('github');
     // console.log(res);
     
 
-    OAuth.popup(this.provider)
-    .done(response => {
-      console.log(`It worked!  The provider is ${this.provider}`)
-      console.log(response.access_token);
-    })
-    .fail(error => {
-      //todo when the OAuth flow failed
-      console.log("It didn't work....");
-      console.log(error);
-   });
+//     OAuth.popup(this.provider)
+//     .done(response => {
+//       console.log(`It worked!  The provider is ${this.provider}`)
+//       console.log(response.access_token);
+//     })
+//     .fail(error => {
+//       //todo when the OAuth flow failed
+//       console.log("It didn't work....");
+//       console.log(error);
+//    });
 
 //     OAuth.popup(this.provider)
 //     .then(oauthResult => {
