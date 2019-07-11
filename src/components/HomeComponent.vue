@@ -100,13 +100,15 @@ export default {
         console.log("INSIDE PARSEDATERANGE:");
 
         const fromDate = { 
-            month: this.query.from.split('-')[0],
+            // Subtract 1 from month (because JavaScript counts months from 0)
+            month: (this.query.from.split('-')[0]) - 1,
             day: this.query.from.split('-')[1],
             year: this.query.from.split('-')[2]
             };
 
         const untilDate = { 
-            month: this.query.until.split('-')[0],
+            // Subtract 1 from month (because JavaScript counts months from 0)
+            month: (this.query.until.split('-')[0]) - 1,
             day: this.query.until.split('-')[1],
             year: this.query.until.split('-')[2]
             };
