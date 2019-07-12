@@ -9,7 +9,7 @@ userRoutes.route('/add').post(function (request, response) {
     let user = new user(request.body);
     user.save()
       .then(() => {
-          response.status(200).json({'business': 'business is added successfully'});
+          response.status(200).send("saved successfully");
       })
       .catch(() => {
           response.status(400).send("unable to save to the database");

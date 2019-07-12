@@ -26,42 +26,6 @@ export default {
     }).fail((error) => {
       console.error(error)
     });
-    // const res = OAuth.create('github');
-    // console.log(res);
-    
-
-//     OAuth.popup(this.provider)
-//     .done(response => {
-//       console.log(`It worked!  The provider is ${this.provider}`)
-//       console.log(response.access_token);
-//     })
-//     .fail(error => {
-//       //todo when the OAuth flow failed
-//       console.log("It didn't work....");
-//       console.log(error);
-//    });
-
-//     OAuth.popup(this.provider)
-//     .then(oauthResult => {
-//         return oauthResult.get('/me');
-//     })
-//     .then(data => {
-//         console.log("It worked!");
-//         console.log(data);
-//     })
-//     .fail(error => {
-//     console.log("It didn't work....");
-//     console.log(error);
-//    });
-
-   // OAuth.popup(provider).then(function(oauthResult) {
-//   return oauthResult.get('/me');
-// }).then(function(data) {
-//   // data is the result of the request to /me
-// }).fail(function(err) {
-//   // handle an error
-// });
-
    },
   }
 };
