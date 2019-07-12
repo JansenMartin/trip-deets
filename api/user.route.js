@@ -6,6 +6,7 @@ const userRoutes = express.Router();
 
 // Define storage route for User
 userRoutes.route('/add').post(function (request, response) {
+    let user = new user(request.body);
     user.save()
       .then(() => {
           response.status(200).json({'business': 'business is added successfully'});
