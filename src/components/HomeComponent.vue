@@ -14,7 +14,7 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
-     <div v-if="data.length > 0">
+     <div v-if="finished">
        <ListComponent :weatherData=data />
      </div>
     </div>
@@ -44,6 +44,7 @@ export default {
         return {
             query:{},
             data: [],
+            finished: false
         }
     },
     // created: {
@@ -88,6 +89,10 @@ export default {
                     this.axios.get(getWeatherURL)
                     .then((weather) => {
                         this.isolateConditions(weather);
+                        
+                        if (i == unixDates.length - 1) {
+                            this.markFinished();
+                        }
                     })
                     .catch((error) => {
                       console.log(error);
@@ -150,6 +155,9 @@ export default {
         //   console.log(unixDates);
           this.getWeather(unixDates);
 
+        },
+        markFinished(){
+            this.finished = true;
         }
     }
 }
