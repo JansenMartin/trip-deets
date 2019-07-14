@@ -4,14 +4,15 @@
 <script>
 
 export default {
-    data(){
-        return {
-            //Return stuff here
-        }
-    },
-    methods: {
-        // List logic goes here
+  props: [],
+  data(){
+    return {
+      //Return stuff here
     }
+  },
+  methods: {
+    // List logic goes here
+  }
 }
 </script>
 
