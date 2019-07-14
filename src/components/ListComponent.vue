@@ -25,7 +25,7 @@ export default {
             rainy: []
         }
 
-        // General daily items
+        // Add general daily items to the packing list (based on number of days)
         for (let i = 0; i < items.general.length; i += 1) {
             this.list.push(`${this.weatherData.length} ${items.general[i]}`);
         }
