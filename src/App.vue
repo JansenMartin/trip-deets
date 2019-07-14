@@ -19,21 +19,21 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <ListComponent weatherData="hello" />
+    <!-- <ListComponent weatherData="hello" /> -->
   </div>
 </template>
 
 <script>
 /* eslint-disable */
 import OAuth from "./components/OAuth";
-import ListComponent from "./components/ListComponent";
+// import ListComponent from "./components/ListComponent";
 // import HomeComponent from './components/HomeComponent.vue'
 
 export default {
   name: 'app',
   components: {
-    OAuth,
-    ListComponent
+    OAuth
+    // ListComponent
   }
 }
 </script>

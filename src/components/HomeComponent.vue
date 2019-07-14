@@ -14,6 +14,7 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
+     <ListComponent weatherData="In the HomeComponent" />
     </div>
   <!-- <div class="row justify-content-center">
       <div class="col-md-8">
@@ -29,10 +30,14 @@
 </template>
 <script>
  /* eslint-disable */
+import ListComponent from "./ListComponent";
 import { W_OK } from 'constants';
 import { format, formatDistance, formatRelative, subDays, eachDay } from 'date-fns'
 
 export default {
+    components: {
+    ListComponent
+  },
     data(){
         return {
             query:{}
