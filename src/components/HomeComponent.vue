@@ -14,7 +14,7 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
-     <div>
+     <div v-if="data.length > 0">
        <ListComponent :weatherData=data />
      </div>
     </div>
@@ -115,7 +115,7 @@ export default {
             console.log(day.apparentTemperatureLow);
 
             todaysWeather.icon = day.icon;
-            todaysWeather.high = day.apparentTemperatureLow;
+            todaysWeather.high = day.apparentTemperatureHigh;
             todaysWeather.low = day.apparentTemperatureLow;
 
             this.data.push(todaysWeather);

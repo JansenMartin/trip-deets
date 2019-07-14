@@ -1,5 +1,5 @@
 <template>
-  <p>{{ weatherData }}</p>
+  <p>{{ list }}</p>
 </template>
 
 <script>
@@ -8,15 +8,17 @@ export default {
   /* eslint-disable */
   props: ["weatherData"],
   created() {
-    console.log('Component has been created!');
+      this.generateList();
   },
   data(){
     return {
-      //Return stuff here
+      list: "Clothes!"
     }
   },
   methods: {
-    //List logic goes here
+    generateList() {
+        this.list = "More clothes!"
+    }
   },
 }
 </script>
