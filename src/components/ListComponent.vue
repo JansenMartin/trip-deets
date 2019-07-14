@@ -4,7 +4,7 @@
 <script>
 
 export default {
-  props: [],
+  props: ["weatherData"],
   data(){
     return {
       //Return stuff here
