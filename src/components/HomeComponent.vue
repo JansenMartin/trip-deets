@@ -15,7 +15,7 @@
         </div>
      </form>
      <div>
-       <ListComponent :weatherData=weather.data />
+       <ListComponent :weatherData=data />
      </div>
     </div>
   <!-- <div class="row justify-content-center">
@@ -43,7 +43,7 @@ export default {
     data(){
         return {
             query:{},
-            weather: {data: "It's weather conditions inside HomeComponent!"},
+            data: [],
         }
     },
     // created: {
@@ -96,6 +96,13 @@ export default {
             })
         },
         isolateConditions(weather) {
+            // this.data.push("We've collected the data!");
+            let todaysWeather = {
+                icon: "",
+                low: "",
+                high: ""
+            };
+
             console.log('***************');
             console.log(weather);
 
@@ -107,6 +114,13 @@ export default {
             console.log("Temp Low");
             console.log(day.apparentTemperatureLow);
 
+            todaysWeather.icon = day.icon;
+            todaysWeather.high = day.apparentTemperatureLow;
+            todaysWeather.low = day.apparentTemperatureLow;
+
+            this.data.push(todaysWeather);
+
+            console.log(this.data);
         },
         parseDateRange() {
 
