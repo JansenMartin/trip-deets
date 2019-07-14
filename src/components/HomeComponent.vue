@@ -38,6 +38,11 @@ export default {
             query:{}
         }
     },
+    // created: {
+    //     sayHello() {
+    //         console.log("It me!");
+    //     }
+    // },
     methods: {
         getWeather(unixDates){
             const location = this.query.location;
