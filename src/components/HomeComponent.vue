@@ -14,7 +14,9 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
-     <ListComponent weatherData="In the HomeComponent" />
+     <div>
+       <ListComponent :weatherData=weather.data />
+     </div>
     </div>
   <!-- <div class="row justify-content-center">
       <div class="col-md-8">
@@ -40,7 +42,8 @@ export default {
   },
     data(){
         return {
-            query:{}
+            query:{},
+            weather: {data: "It's weather conditions inside HomeComponent!"},
         }
     },
     // created: {
