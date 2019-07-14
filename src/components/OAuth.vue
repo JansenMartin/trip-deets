@@ -23,10 +23,21 @@ export default {
       return provider.me()
     }).then((me) => {
       console.log('Hello there, ' + me.name)
+      // DOES USER EXIST?  IF SO, TRIGGER addUser()
     }).fail((error) => {
       console.error(error)
     });
+
    },
+   addUser() {
+       // DEFINE USER INFO
+
+    //    // Axios network request to store a new user goes here!!
+    //    const uri = 'http://localhost:4000/users/create';
+    //    this.axios.post(uri, USER_INFO).then(() => {
+    //        this.$router.push({name: 'users'});
+    //    })
+   }
   }
 };
 
