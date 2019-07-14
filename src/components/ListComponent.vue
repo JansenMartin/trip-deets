@@ -25,7 +25,13 @@ export default {
             rainy: []
         }
 
-        this.list.push(`${this.weatherData.length} ${items.general[0]}`);
+        // General daily items
+        for (let i = 0; i < items.general.length; i += 1) {
+            this.list.push(`${this.weatherData.length} ${items.general[i]}`);
+        }
+
+        // this.list.push(`${this.weatherData.length} ${items.general[0]}`);
+        // this.list.push(`${this.weatherData.length} ${items.general[1]}`);
     }
   },
 }
