@@ -12,12 +12,20 @@ export default {
   },
   data(){
     return {
-      list: "Clothes!"
+      list: []
     }
   },
   methods: {
     generateList() {
-        this.list = "More clothes!"
+        const items = {
+            general: ["pairs of socks", "sets of underwear"],
+            cold: [],
+            hot: [],
+            snowy: [],
+            rainy: []
+        }
+
+        this.list.push(`${this.weatherData.length} ${items.general[0]}`);
     }
   },
 }
