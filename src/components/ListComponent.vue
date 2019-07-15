@@ -77,6 +77,13 @@ export default {
           }
         }
 
+        // If there are temperate days
+        if (temperateDays > 0) {
+          for (let i = 0; i < items.temperate.length; i += 1) {
+            // Add items marked for temperate days
+            this.list.push(`${temperateDays} ${items.temperate[i]}`);
+          }
+        }
 
         //*******  TODO: Add shorts (based number of HOT days / 2)?  ******
         // If number of hot days is GREATER THAN 0...
