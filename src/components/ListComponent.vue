@@ -2,11 +2,12 @@
 <template>
 <!-- eslint-disable  -->
 <div class="packing-list-container">
-  <ul class="packing-list" v-if="listComplete">
-   <li v-for="item in list">
-      {{ item }}
-    </li>
-  </ul>
+  <div class="packing-list" v-if="listComplete">
+   <ul v-for="item in list">
+      <!-- <li>{{ item }}</li> -->
+      <ItemComponent :item=item />
+    </ul>
+  </div>
  </div>
 </template>
 

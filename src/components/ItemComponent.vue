@@ -1,7 +1,7 @@
 <template>
-  <div class="{ complete: isComplete }">
-
-  </div>
+  <li>
+    {{item}}
+  </li>
 </template>
 
 <script>
