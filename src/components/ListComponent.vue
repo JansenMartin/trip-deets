@@ -21,7 +21,7 @@ export default {
             general: ["pairs of socks", "sets of underwear"],
             coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],
             hotGeneral: ["summer hat"],
-            cold: ["long-sleeved shirt"],
+            cold: ["long-sleeved shirts"],
             temperate: ["t-shirts"],
             hot: ["tank tops", "shorts"],
             snowy: ["umbrella", "boots"],
@@ -73,9 +73,17 @@ export default {
 
         // If number of cold days is GREATER THAN 0...
         if (coldDays > 0) {
+          
+          // Add general 'one-off' items (like warm hat, coat, etc.)
           for (let i = 0; i < items.coldGeneral.length; i += 1) {
             this.list.push(`1 ${items.coldGeneral[i]}`);
           }
+
+          // Add items that increment based on number of days (shirts, etc.)
+          for (let i = 0; i < items.cold.length; i += 1) {
+            this.list.push(`${coldDays} ${items.cold[i]}`);
+          }
+
         }
             // Add hat, heavy coat, gloves/mittens to the list
             // Add long-sleeved shirts (based on the number of COLD days)
