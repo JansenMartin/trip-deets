@@ -19,10 +19,11 @@ export default {
     generateList() {
         const items = {
             general: ["pairs of socks", "sets of underwear"],
-            cold: ["long-sleeved shirt"],
             coldGeneral: ["coat", "hat", "gloves/mittens", "sweater"],
             hotGeneral: ["summer hat"],
-            hot: ["t-shirt", "shorts"],
+            cold: ["long-sleeved shirt"],
+            temperate: ["t-shirts"],
+            hot: ["tank tops", "shorts"],
             snowy: ["umbrella", "boots"],
             rainy: ["raincoat", "umbrella"],
         }
@@ -55,11 +56,25 @@ export default {
           }
           else if (weather.icon === "snow" || weather.icon === "sleet") {
               snow = true;
-          }    
+          }
+          
+          if (weather.high > 80) {
+              hotDays += 1;
+          }
+          else if (weather.high < 50) {
+              coldDays += 1;
+          }
+          else {
+              temperateDays += 1;
+          }
           
         //   console.log(weather.icon);
         //   this.list.push(`${this.weatherData.length} ${items.general[i]}`);
         }
+
+        // console.log(`Number of hot days: ${hotDays}`);
+        // console.log(`Number of cold days: ${coldDays}`);
+        // console.log(`Number of temperate days: ${temperateDays}`);
 
         // Check rainy TRUE if rainy day appears
         // Check snowy TRUE if snowy day appears
