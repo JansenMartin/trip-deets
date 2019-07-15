@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="form-list-container">
      <!-- <p>Hello</p> -->
      <form @submit.prevent="parseDateRange">
          <label>Enter Destination:</label>
@@ -14,7 +14,7 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
-     <div v-if="finished">
+     <div class="packing-list" v-if="finished">
        <ListComponent :weatherData=data />
      </div>
     </div>
@@ -166,12 +166,18 @@ export default {
 </script>
 
 <style>
+.form-list-container {
+    display: flex;
+}
 .btn-primary {
     margin-top: 1em;
 }
 
+form {
+    width: 50%;
+}
 #destination-input {
-    max-width: 40%;
+    max-width: 50%;
 }
 
 .form-control {
