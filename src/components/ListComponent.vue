@@ -11,12 +11,16 @@
 </template>
 
 <script>
+import ItemComponent from "./ItemComponent";
 
 export default {
   /* eslint-disable */
   props: ["weatherData"],
   created() {
       this.generateList();
+  },
+  components: {
+    ItemComponent
   },
   data(){
     return {
