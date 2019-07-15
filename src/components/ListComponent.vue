@@ -42,11 +42,25 @@ export default {
         let temperateDays = 0;
         
         // Initialize rainy as FALSE
-        let rainy = false;
+        let rain = false;
         // Initialize snowy as FALSE
-        let snowy = false;
+        let snow = false;
 
         // Iterate over the weather data, increment number of days based on HIGH
+        for (let i = 0; i < this.weatherData.length; i += 1) {
+          const weather = this.weatherData[i];
+
+          if (weather.icon === "rain") {
+              rain = true;
+          }
+          else if (weather.icon === "snow" || weather.icon === "sleet") {
+              snow = true;
+          }    
+          
+        //   console.log(weather.icon);
+        //   this.list.push(`${this.weatherData.length} ${items.general[i]}`);
+        }
+
         // Check rainy TRUE if rainy day appears
         // Check snowy TRUE if snowy day appears
 
