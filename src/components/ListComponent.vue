@@ -35,8 +35,11 @@ export default {
         // Add other misc items (like a jacket)
 
         // Initialize number of cold days
+        let coldDays = 0;
         // Initialize number of hot days
+        let hotDays = 0;
         // Initialize number of temperate days
+        let temperateDays = 0;
         
         // Initialize rainy as FALSE
         // Initialize snowy as FALSE
