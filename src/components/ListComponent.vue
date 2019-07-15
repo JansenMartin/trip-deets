@@ -2,8 +2,8 @@
 <template>
 <!-- eslint-disable  -->
 <div class="packing-list-container">
-  <div class="packing-list" v-if="listComplete">
-   <ul v-for="item in list">
+  <!-- <div v-if="listComplete"> -->
+   <ul class="packing-list" v-for="item in list">
       <!-- <li>{{ item }}</li> -->
       <ItemComponent :item=item />
     </ul>
@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     generateList() {
-        console.log(`WEATHER DATA INSIDE LIST: ${this.weatherData}`);
         this.list.push("1 jacket");
 
         const items = {
@@ -140,6 +139,10 @@ export default {
     border: solid black 1px;
 } */
 
+.packing-list-container {
+    max-width: 75%;
+    margin-right: 0px;
+}
 .packing-list li {
     padding-top: .5em;
     /* text-decoration: line-through; */
@@ -151,5 +154,8 @@ export default {
 .packing-list {
     margin-left: 3vw;
     margin-top: 1vw;
+    display: inline-block;
+    align-items: center;
+    /* max-width: 100px; */
 }
 </style>

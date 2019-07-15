@@ -138,7 +138,7 @@ export default {
           ).map((date) =>  {
               return Date.parse(date) / 1000;
           });
-          
+
           this.getWeather(unixDates);
 
         },
@@ -161,11 +161,11 @@ form {
     width: 50%;
 }
 #destination-input {
-    max-width: 50%;
+    max-width: 100%;
 }
 
 .form-control {
-    max-width: 20%;
+    max-width: 50%;
 }
 
 label {
