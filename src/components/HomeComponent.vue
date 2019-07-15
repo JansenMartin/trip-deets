@@ -99,16 +99,16 @@ export default {
                 high: ""
             };
 
-            console.log('***************');
-            console.log(weather);
+            // console.log('***************');
+            // console.log(weather);
 
             const day = weather.data.daily.data[0];
 
-            console.log(`Today's weather: ${day.icon}`);
-            console.log("Temp High:")
-            console.log(day.apparentTemperatureHigh);
-            console.log("Temp Low");
-            console.log(day.apparentTemperatureLow);
+            // console.log(`Today's weather: ${day.icon}`);
+            // console.log("Temp High:")
+            // console.log(day.apparentTemperatureHigh);
+            // console.log("Temp Low");
+            // console.log(day.apparentTemperatureLow);
 
             todaysWeather.icon = day.icon;
             todaysWeather.high = day.apparentTemperatureHigh;
@@ -116,7 +116,7 @@ export default {
 
             this.data.push(todaysWeather);
 
-            console.log(this.data);
+            // console.log(this.data);
         },
         parseDateRange() {
 

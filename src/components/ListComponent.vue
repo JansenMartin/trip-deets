@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     generateList() {
+        console.log(`WEATHER DATA INSIDE LIST: ${this.weatherData}`);
         this.list.push("1 jacket");
 
         const items = {
