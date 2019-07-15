@@ -1,6 +1,5 @@
 <template>
 <div>
-  <!-- <p>{{ list }}</p> -->
   <ul v-if="listComplete">
    <li v-for="item in list">
       {{ item }}
@@ -19,12 +18,14 @@ export default {
   },
   data(){
     return {
-      list: ["1 jacket"],
+      list: [],
       listComplete: false
     }
   },
   methods: {
     generateList() {
+        this.list.push("1 jacket");
+
         const items = {
             general: ["pairs of socks", "sets of underwear"],
             coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],

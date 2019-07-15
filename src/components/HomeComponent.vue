@@ -54,6 +54,7 @@ export default {
     // },
     methods: {
         getWeather(unixDates){
+            this.finished = false;
             const location = this.query.location;
 
             // // Set date to UNIX time (in a format Dark Sky accepts)
