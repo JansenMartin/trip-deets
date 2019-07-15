@@ -54,6 +54,7 @@ export default {
     // },
     methods: {
         getWeather(unixDates){
+            this.data = [];
             this.finished = false;
             const location = this.query.location;
 
