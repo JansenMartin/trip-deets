@@ -14,7 +14,7 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
-     <div class="packing-list" v-if="finished">
+     <div v-if="finished">
        <ListComponent :weatherData=data />
      </div>
     </div>

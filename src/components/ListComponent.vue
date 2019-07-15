@@ -1,6 +1,6 @@
 <template>
-<div>
-  <ul v-if="listComplete">
+<div class="packing-list-container">
+  <ul class="packing-list" v-if="listComplete">
    <li v-for="item in list">
       {{ item }}
     </li>
@@ -128,4 +128,15 @@ export default {
 </script>
 
 <style>
+/* .packing-list, form {
+    border: solid black 1px;
+} */
+
+.packing-list li {
+    padding-top: .5em;
+}
+.packing-list {
+    margin-left: 3vw;
+    margin-top: 1vw;
+}
 </style>
