@@ -1,5 +1,12 @@
 <template>
-  <p>{{ list }}</p>
+<div>
+  <!-- <p>{{ list }}</p> -->
+  <ul v-if="listComplete">
+   <li v-for="item in list">
+      {{ item }}
+    </li>
+  </ul>
+ </div>
 </template>
 
 <script>
@@ -12,7 +19,8 @@ export default {
   },
   data(){
     return {
-      list: ["1 jacket"]
+      list: ["1 jacket"],
+      listComplete: false
     }
   },
   methods: {
@@ -112,6 +120,7 @@ export default {
           }
         }
         
+      this.listComplete = true;
     }
   },
 }
