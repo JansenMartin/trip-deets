@@ -86,13 +86,13 @@ export default {
 
         // If number of hot days is GREATER THAN 0...
         if (hotDays > 0) {
-          // Add general 'one-off' items (like warm hat, coat, etc.)
+          // Add general 'one-off' items (like summer hat etc.)
           for (let i = 0; i < items.hotGeneral.length; i += 1) {
             this.list.push(`1 ${items.hotGeneral[i]}`);
           }
 
-          // Add items that increment based on number of days (shirts, etc.)
-          for (let i = 0; i < items.cold.length; i += 1) {
+          // Add items that increment based on number of days (tank-tops, etc.)
+          for (let i = 0; i < items.hot.length; i += 1) {
             this.list.push(`${hotDays} ${items.hot[i]}`);
           }
         }
