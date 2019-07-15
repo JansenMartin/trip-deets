@@ -44,11 +44,13 @@ export default {
         return {
             query:{},
             data: [],
+            checkNumber: 0,
             finished: false
         }
     },
     methods: {
         getWeather(unixDates){
+            this.checkNumber = 0;
             this.data = [];
             this.finished = false;
             const location = this.query.location;
@@ -79,11 +81,11 @@ export default {
                     // Get weather based on latitude and longitude
                     this.axios.get(getWeatherURL)
                     .then((weather) => {
-                        this.isolateConditions(weather);
+                        this.isolateConditions(weather, i, unixDates.length);
                         
-                        if (i == unixDates.length - 1) {
-                            this.markFinished();
-                        }
+                        // if (i == unixDates.length - 1) {
+                        //     this.markFinished();
+                        // }
                     })
                     .catch((error) => {
                       console.log(error);
@@ -91,7 +93,7 @@ export default {
                 };
             })
         },
-        isolateConditions(weather) {
+        isolateConditions(weather, dayNumber, totalDays) {
             // this.data.push("We've collected the data!");
             let todaysWeather = {
                 icon: "",
@@ -115,8 +117,15 @@ export default {
             todaysWeather.low = day.apparentTemperatureLow;
 
             this.data.push(todaysWeather);
+            this.checkNumber += 1;
 
-            // console.log(this.data);
+            console.log("Checking for true or false here:");
+            console.log(this.checkNumber == totalDays - 1);
+
+            if (this.checkNumber == totalDays) {
+             this.markFinished();
+            }
+
         },
         parseDateRange() {
 
