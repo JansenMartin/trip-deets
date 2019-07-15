@@ -24,8 +24,8 @@ export default {
             cold: ["long-sleeved shirts"],
             temperate: ["t-shirts"],
             hot: ["tank tops", "pairs of shorts"],
-            snowy: ["umbrella", "boots"],
-            rainy: ["raincoat", "umbrella"],
+            snow: ["umbrella", "boots"],
+            rain: ["raincoat", "umbrella"],
         }
 
         // Add general daily items to the packing list (based on number of days)
@@ -84,6 +84,8 @@ export default {
           }
         }
 
+
+        //*******  TODO: Add shorts (based number of HOT days / 2)?  ******
         // If number of hot days is GREATER THAN 0...
         if (hotDays > 0) {
           // Add general 'one-off' items (like summer hat etc.)
@@ -97,16 +99,18 @@ export default {
           }
         }
 
-
-        // If number of hot days is GREATER THAN 0...
-            // Add summer hat and sandals to the list
-            // Add t-shirts (based on number of days)
-            // Add shorts (based number of HOT days / 2)
-
-        // If rainy AND snowy are TRUE (OR) snowy ONLY is true
-            // Add umbrella and snowboots
-        // else (only rainy is true)
-            // Add umbrella and raincoat
+        // If SNOW is true, add umbrella and snowboots
+        if (snow) {
+          for (let i = 0; i < items.snow.length; i += 1) {
+            this.list.push(`1 ${items.snow[i]}`);
+          }
+        }
+        // If ONLY RAIN is true, add umbrella and raincoat
+        else if (rain && !snow) {
+          for (let i = 0; i < items.rain.length; i += 1) {
+            this.list.push(`1 ${items.rain[i]}`);
+          }
+        }
         
     }
   },
