@@ -64,13 +64,6 @@ export default {
           }
         }
 
-        // console.log(`Number of hot days: ${hotDays}`);
-        // console.log(`Number of cold days: ${coldDays}`);
-        // console.log(`Number of temperate days: ${temperateDays}`);
-
-        // Check rainy TRUE if rainy day appears
-        // Check snowy TRUE if snowy day appears
-
         // If number of cold days is GREATER THAN 0...
         if (coldDays > 0) {
           // Add general 'one-off' items (like warm hat, coat, etc.)
