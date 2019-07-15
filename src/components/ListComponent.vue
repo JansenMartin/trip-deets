@@ -19,7 +19,7 @@ export default {
     generateList() {
         const items = {
             general: ["pairs of socks", "sets of underwear"],
-            coldGeneral: ["coat", "hat", "gloves/mittens", "sweater"],
+            coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],
             hotGeneral: ["summer hat"],
             cold: ["long-sleeved shirt"],
             temperate: ["t-shirts"],
@@ -72,6 +72,11 @@ export default {
         // Check snowy TRUE if snowy day appears
 
         // If number of cold days is GREATER THAN 0...
+        if (coldDays > 0) {
+          for (let i = 0; i < items.coldGeneral.length; i += 1) {
+            this.list.push(`1 ${items.coldGeneral[i]}`);
+          }
+        }
             // Add hat, heavy coat, gloves/mittens to the list
             // Add long-sleeved shirts (based on the number of COLD days)
 
