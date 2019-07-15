@@ -34,7 +34,7 @@ export default {
             coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],
             hotGeneral: ["summer hat"],
             cold: ["long-sleeved shirts"],
-            temperate: ["t-shirts"],
+            temperate: ["t-shirts", "pairs of jeans"],
             hot: ["tank tops", "pairs of shorts"],
             snow: ["umbrella", "boots"],
             rain: ["raincoat", "umbrella"],
@@ -137,6 +137,11 @@ export default {
 
 .packing-list li {
     padding-top: .5em;
+    /* text-decoration: line-through; */
+}
+
+.line-through {
+    /* Something here */
 }
 .packing-list {
     margin-left: 3vw;
