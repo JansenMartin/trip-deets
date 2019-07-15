@@ -1,4 +1,6 @@
+
 <template>
+<!-- eslint-disable  -->
 <div class="packing-list-container">
   <ul class="packing-list" v-if="listComplete">
    <li v-for="item in list">

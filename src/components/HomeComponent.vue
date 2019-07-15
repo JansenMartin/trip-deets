@@ -47,20 +47,11 @@ export default {
             finished: false
         }
     },
-    // created: {
-    //     sayHello() {
-    //         console.log("It me!");
-    //     }
-    // },
     methods: {
         getWeather(unixDates){
             this.data = [];
             this.finished = false;
             const location = this.query.location;
-
-            // // Set date to UNIX time (in a format Dark Sky accepts)
-            // let parsedDate = Date.parse(this.query.date);
-            // parsedDate = parsedDate / 10000
 
             // API Keys
             const locationKey = process.env.VUE_APP_LOCATION;
@@ -78,8 +69,6 @@ export default {
             })
             .then((response) => {
       
-                // console.log(unixDates);
-                //  console.log("We got the location info!");
                 console.log(`********* WEATHER REPORT FOR: ${location} *********`)
                 const lat = response.data[0].lat;
                 const lon = response.data[0].lon;
