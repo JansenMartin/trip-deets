@@ -42,7 +42,9 @@ export default {
         let temperateDays = 0;
         
         // Initialize rainy as FALSE
+        let rainy = false;
         // Initialize snowy as FALSE
+        let snowy = false;
 
         // Iterate over the weather data, increment number of days based on HIGH
         // Check rainy TRUE if rainy day appears
