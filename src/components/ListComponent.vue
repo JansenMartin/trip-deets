@@ -35,16 +35,11 @@ export default {
 
         // Add other misc items (like a jacket)
 
-        // Initialize number of cold days
         let coldDays = 0;
-        // Initialize number of hot days
         let hotDays = 0;
-        // Initialize number of temperate days
         let temperateDays = 0;
         
-        // Initialize rainy as FALSE
         let rain = false;
-        // Initialize snowy as FALSE
         let snow = false;
 
         // Iterate over the weather data, increment number of days based on HIGH
@@ -67,9 +62,6 @@ export default {
           else {
               temperateDays += 1;
           }
-          
-        //   console.log(weather.icon);
-        //   this.list.push(`${this.weatherData.length} ${items.general[i]}`);
         }
 
         // console.log(`Number of hot days: ${hotDays}`);
