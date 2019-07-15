@@ -14,7 +14,7 @@
           <button class="btn btn-primary">Submit</button>
         </div>
      </form>
-     <div v-if="finished">
+     <div class="packing-list-container" v-if="finished">
        <ListComponent :weatherData=data />
      </div>
     </div>
@@ -150,6 +150,12 @@ export default {
 </script>
 
 <style>
+.packing-list-container {
+    max-width: 50%;
+    /* margin-right: 0px;
+    padding-right: 0px; */
+}
+
 .form-list-container {
     display: flex;
 }
@@ -161,11 +167,11 @@ form {
     width: 50%;
 }
 #destination-input {
-    max-width: 100%;
+    max-width: 50%;
 }
 
 .form-control {
-    max-width: 50%;
+    max-width: 25%;
 }
 
 label {

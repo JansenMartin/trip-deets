@@ -30,6 +30,7 @@
       list-style: none;
       height: 3vw;
       padding: 1em;
+      /* max-width: 10em; */
 
       margin: 0px;
   }

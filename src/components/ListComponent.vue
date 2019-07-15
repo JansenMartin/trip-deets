@@ -139,10 +139,6 @@ export default {
     border: solid black 1px;
 } */
 
-.packing-list-container {
-    max-width: 75%;
-    margin-right: 0px;
-}
 .packing-list li {
     padding-top: .5em;
     /* text-decoration: line-through; */
