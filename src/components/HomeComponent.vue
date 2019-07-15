@@ -81,11 +81,7 @@ export default {
                     // Get weather based on latitude and longitude
                     this.axios.get(getWeatherURL)
                     .then((weather) => {
-                        this.isolateConditions(weather, i, unixDates.length);
-                        
-                        // if (i == unixDates.length - 1) {
-                        //     this.markFinished();
-                        // }
+                        this.isolateConditions(weather, unixDates.length);
                     })
                     .catch((error) => {
                       console.log(error);
@@ -93,16 +89,12 @@ export default {
                 };
             })
         },
-        isolateConditions(weather, dayNumber, totalDays) {
-            // this.data.push("We've collected the data!");
+        isolateConditions(weather, totalDays) {
             let todaysWeather = {
                 icon: "",
                 low: "",
                 high: ""
             };
-
-            // console.log('***************');
-            // console.log(weather);
 
             const day = weather.data.daily.data[0];
 
@@ -119,17 +111,12 @@ export default {
             this.data.push(todaysWeather);
             this.checkNumber += 1;
 
-            console.log("Checking for true or false here:");
-            console.log(this.checkNumber == totalDays - 1);
-
             if (this.checkNumber == totalDays) {
              this.markFinished();
             }
 
         },
         parseDateRange() {
-
-        // console.log("INSIDE PARSEDATERANGE:");
 
         const fromDate = { 
             // Subtract 1 from month (because JavaScript counts months from 0)
@@ -151,8 +138,7 @@ export default {
           ).map((date) =>  {
               return Date.parse(date) / 1000;
           });
-
-        //   console.log(unixDates);
+          
           this.getWeather(unixDates);
 
         },
