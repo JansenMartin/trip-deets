@@ -30,9 +30,18 @@
       list-style: none;
       height: 3vw;
       padding: 1em;
+      font-weight: 600;
+      transition-duration: .25s;
       /* max-width: 10em; */
 
-      margin: 0px;
+      /* margin: 0px; */  
+  }
+
+  .packing-list-item:hover {
+      background-color: #3dd1c0;
+      color: white;
+      padding-right: 1.25em;
+      padding-left: 1.25em;
   }
   .complete {
     text-decoration: line-through;
