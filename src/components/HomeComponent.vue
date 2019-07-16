@@ -14,7 +14,7 @@
         </div>
      </form>
      <div class="packing-list-container" v-if="finished">
-        <SummaryComponent />
+        <SummaryComponent :weatherData=data />
        <ListComponent :weatherData=data />
      </div>
     </div>
