@@ -45,5 +45,11 @@
   }
   .complete {
     text-decoration: line-through;
+    color: slategray;
+  }
+
+  .complete:hover {
+      background-color: slategray;
+      color: black;
   }
 </style>
