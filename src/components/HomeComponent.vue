@@ -79,7 +79,6 @@ export default {
                     // Get weather based on latitude and longitude
                     this.axios.get(getWeatherURL)
                     .then((weather) => {
-                        console.log("We did it!");
                         this.isolateConditions(weather, unixDates.length);
                     })
                     .catch((error) => {
