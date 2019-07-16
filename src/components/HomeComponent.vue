@@ -1,16 +1,12 @@
 <template>
  <div class="form-list-container">
-     <!-- <p>Hello</p> -->
      <form @submit.prevent="parseDateRange">
          <label>Enter Destination:</label>
          <input type="text" class="form-control" id="destination-input" v-model="query.location">
          <section class="dates-input">
          <label>From:</label>
-         <!-- <input type="text" class="form-control" v-model="query.from"> -->
          <datepicker @selected="query.from = $event" @closed="test()" placeholder="Select Date"></datepicker>
          <label>Until:</label>
-         <!-- <input type="text" class="form-control" v-model="query.until"> -->
-         <!-- <input type="date" name="until" v-model="query.until"> -->
          <datepicker @selected="query.until = $event" @closed="test()" placeholder="Select Date"></datepicker>
          </section>
          <div class="form-group">
@@ -163,8 +159,6 @@ export default {
 <style>
 .packing-list-container {
     max-width: 50%;
-    /* margin-right: 0px;
-    padding-right: 0px; */
 }
 
 .form-list-container {
