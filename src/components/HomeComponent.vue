@@ -62,7 +62,7 @@ export default {
           console.log("End of Formatter");
         },
         getWeather(unixDates){
-            console.log(`******** GETTING WEATHER UNTIL ${this.query.until}`)
+            console.log(`******** GETTING WEATHER FOR ${unixDates}`)
             this.checkNumber = 0;
             this.data = [];
             this.finished = false;
@@ -132,12 +132,9 @@ export default {
         },
         parseDateRange() {
 
-            console.log(`***** PARSING DATE FOR: ${this.query.until}`)
-            this.customFormatter(this.query.until);
+            // this.customFormatter(this.query.until);
             // const muhDate = Date.parse(this.query.until);
             // console.log(muhDate);
-
-        const untilDate = moment(this.query.until).toArray();
     
 
         const fromDate = { 
@@ -147,12 +144,19 @@ export default {
             year: this.query.from.split('-')[2]
             };
 
-        // const untilDate = { 
-        //     // Subtract 1 from month (because JavaScript counts months from 0)
-        //     month: (this.query.until.split('-')[0]) - 1,
-        //     day: this.query.until.split('-')[1],
-        //     year: this.query.until.split('-')[2]
-        //     };
+         const untilSplit = moment(this.query.until).toArray();
+        // console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
+
+        const untilDate = { 
+            // Subtract 1 from month (because JavaScript counts months from 0)
+            month: untilSplit[1],
+            day: untilSplit[2],
+            year: untilSplit[0]
+            };
+
+            console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
+
+        console.log(untilDate);
 
         const unixDates = eachDay(
             new Date(fromDate.year, fromDate.month, fromDate.day),
@@ -160,6 +164,8 @@ export default {
           ).map((date) =>  {
               return Date.parse(date) / 1000;
           });
+
+          console.log(`There unix dates, here: ${unixDates}`)
 
           this.getWeather(unixDates);
 
