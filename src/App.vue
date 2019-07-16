@@ -14,6 +14,9 @@
           <!-- OAuth Component!! -->
           <OAuth provider="github" />
         </li>
+        <li class="nav-item" v-if="loggedIn">
+          <a href="">I can render!</a>
+        </li>
       </ul>
     </nav><br />
     <transition name="fade">
@@ -31,6 +34,9 @@ import OAuth from "./components/OAuth";
 
 export default {
   name: 'app',
+  data: {
+    loggedIn: false
+  },
   components: {
     OAuth
     // ListComponent

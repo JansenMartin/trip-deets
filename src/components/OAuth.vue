@@ -1,5 +1,5 @@
 <template>
- <a class="nav-link" @click="Auth();" :class="class2">
+ <a v-on:click="$emit('log-in')" class="nav-link" @click="Auth();" :class="class2">
  <span :class="class1"></span> Sign in with {{ provider }}
  </a>
 </template>
