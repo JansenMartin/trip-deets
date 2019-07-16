@@ -12,7 +12,7 @@
 
         <li class="nav-item">
           <!-- OAuth Component!! -->
-          <OAuth provider="github" />
+          <OAuth v-on:log-in="loggedIn = true" provider="github" />
         </li>
         <li class="nav-item" v-if="loggedIn">
           <a href="">I can render!</a>
