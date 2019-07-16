@@ -1,5 +1,5 @@
 <template>
- <a v-on:click="$emit('log-in')" class="nav-link" @click="Auth();" :class="class2">
+ <a class="nav-link" @click="Auth();" :class="class2">
  <span :class="class1"></span> Sign in with {{ provider }}
  </a>
 </template>
@@ -12,7 +12,7 @@ export default {
   data() {
     return {
     class1: "fa fa-" + this.provider,
-    class2: "btn btn-block btn-social btn-" + this.provider
+    class2: "btn btn-block btn-social btn-" + this.provider,
     };
   },
   methods: {
@@ -23,6 +23,7 @@ export default {
       return provider.me()
     }).then((me) => {
       console.log('Hello there, ' + me.name)
+      this.$emit('log-in', me.name);
     }).fail((error) => {
       console.error(error)
     });

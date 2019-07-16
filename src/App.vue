@@ -12,17 +12,17 @@
 
         <li class="nav-item">
           <!-- OAuth Component!! -->
-          <OAuth v-on:log-in="loggedIn = true" provider="github" />
+          <OAuth v-on:log-in="loggedIn = true, currentUser = $event" provider="github" />
         </li>
-        <li class="nav-item" v-if="loggedIn">
+        <!-- <li class="nav-item" v-if="loggedIn">
           <a href="">I can render!</a>
-        </li>
+        </li> -->
       </ul>
     </nav><br />
+    <p v-if="loggedIn">Welcome, {{ currentUser }}!</p>
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <!-- <ListComponent weatherData="hello" /> -->
   </div>
 </template>
 
@@ -35,7 +35,8 @@ import OAuth from "./components/OAuth";
 export default {
   name: 'app',
   data: {
-    loggedIn: false
+    loggedIn: false,
+    currentUser: ""
   },
   components: {
     OAuth
