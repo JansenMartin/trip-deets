@@ -38,6 +38,8 @@ import ListComponent from "./ListComponent";
 import { W_OK } from 'constants';
 import { format, formatDistance, formatRelative, subDays, eachDay } from 'date-fns'
 import Datepicker from 'vuejs-datepicker';
+import moment from 'moment'
+// Vue.prototype.moment = moment
 
 export default {
     components: {
