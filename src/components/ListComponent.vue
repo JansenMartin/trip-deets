@@ -44,12 +44,11 @@ export default {
             rain: ["raincoat", "umbrella"],
         }
 
-        // Add general daily items to the packing list (based on number of days)
-        for (let i = 0; i < items.general.length; i += 1) {
-            this.list.push(`${this.weatherData.length} ${items.general[i]}`);
-        }
+        // // Add general daily items to the packing list (based on number of days)
+        // for (let i = 0; i < items.general.length; i += 1) {
+        //     this.list.push(`${this.weatherData.length} ${items.general[i]}`);
+        // }
 
-        // Add other misc items (like a jacket)
 
         let coldDays = 0;
         let hotDays = 0;
@@ -126,6 +125,11 @@ export default {
           for (let i = 0; i < items.rain.length; i += 1) {
             this.list.push(`1 ${items.rain[i]}`);
           }
+        }
+
+        // Add general daily items to the packing list (based on number of days)
+        for (let i = 0; i < items.general.length; i += 1) {
+            this.list.push(`${this.weatherData.length} ${items.general[i]}`);
         }
         
       this.listComplete = true;
