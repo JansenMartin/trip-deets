@@ -6,7 +6,8 @@
          <input type="text" class="form-control" id="destination-input" v-model="query.location">
          <section class="dates-input">
          <label>From:</label>
-         <input type="text" class="form-control" v-model="query.from">
+         <!-- <input type="text" class="form-control" v-model="query.from"> -->
+         <datepicker @selected="query.from = $event" @closed="test()" placeholder="Select Date"></datepicker>
          <label>Until:</label>
          <!-- <input type="text" class="form-control" v-model="query.until"> -->
          <!-- <input type="date" name="until" v-model="query.until"> -->
@@ -137,16 +138,23 @@ export default {
             // console.log(muhDate);
     
 
+        
+        // const fromDate = { 
+        //     // Subtract 1 from month (because JavaScript counts months from 0)
+        //     month: (this.query.from.split('-')[0]) - 1,
+        //     day: this.query.from.split('-')[1],
+        //     year: this.query.from.split('-')[2]
+        //     };
+
+        const fromSplit = moment(this.query.from).toArray();
         const fromDate = { 
             // Subtract 1 from month (because JavaScript counts months from 0)
-            month: (this.query.from.split('-')[0]) - 1,
-            day: this.query.from.split('-')[1],
-            year: this.query.from.split('-')[2]
+            month: fromSplit[1],
+            day: fromSplit[2],
+            year: fromSplit[0]
             };
 
-         const untilSplit = moment(this.query.until).toArray();
-        // console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
-
+        const untilSplit = moment(this.query.until).toArray();
         const untilDate = { 
             // Subtract 1 from month (because JavaScript counts months from 0)
             month: untilSplit[1],
