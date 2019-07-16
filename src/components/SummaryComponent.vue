@@ -1,4 +1,5 @@
 <template>
+<p>Summary Component</p>
 </template>
 
 <script>

@@ -21,9 +21,11 @@
 <script>
  /* eslint-disable */
 import ListComponent from "./ListComponent";
+import SummaryComponet from "./SummaryComponent"
+import Datepicker from 'vuejs-datepicker';
+
 import { W_OK } from 'constants';
 import { format, formatDistance, formatRelative, subDays, eachDay } from 'date-fns'
-import Datepicker from 'vuejs-datepicker';
 import moment from 'moment'
 
 export default {
