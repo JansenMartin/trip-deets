@@ -8,7 +8,9 @@
          <label>From:</label>
          <input type="text" class="form-control" v-model="query.from">
          <label>Until:</label>
-         <input type="text" class="form-control" v-model="query.until">
+         <!-- <input type="text" class="form-control" v-model="query.until"> -->
+         <!-- <input type="date" name="until" v-model="query.until"> -->
+         <datepicker @selected="query.until = $event" @closed="test()" placeholder="Select Date"></datepicker>
          </section>
          <div class="form-group">
           <button class="btn btn-primary">Submit</button>
@@ -35,10 +37,12 @@
 import ListComponent from "./ListComponent";
 import { W_OK } from 'constants';
 import { format, formatDistance, formatRelative, subDays, eachDay } from 'date-fns'
+import Datepicker from 'vuejs-datepicker';
 
 export default {
     components: {
-    ListComponent
+    ListComponent,
+    Datepicker
   },
     data(){
         return {
@@ -49,7 +53,14 @@ export default {
         }
     },
     methods: {
+        customFormatter(date) {
+          console.log("Inside Formatter");
+          const formattedDate = moment(date).format('MMMM Do YYYY, h:mm:ss a');
+          console.log(formattedDate);
+          console.log("End of Formatter");
+        },
         getWeather(unixDates){
+            console.log(`******** GETTING WEATHER UNTIL ${this.query.until}`)
             this.checkNumber = 0;
             this.data = [];
             this.finished = false;
@@ -118,6 +129,11 @@ export default {
         },
         parseDateRange() {
 
+            console.log(`***** PARSING DATE FOR: ${this.query.until}`)
+            this.customFormatter(this.query.until);
+            // const muhDate = Date.parse(this.query.until);
+            // console.log(muhDate);
+
         const fromDate = { 
             // Subtract 1 from month (because JavaScript counts months from 0)
             month: (this.query.from.split('-')[0]) - 1,
@@ -144,6 +160,10 @@ export default {
         },
         markFinished(){
             this.finished = true;
+        },
+        test(event) {
+            console.log(this.query.until);
+            console.log(this.query.from);
         }
     }
 }
