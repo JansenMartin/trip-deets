@@ -14,6 +14,7 @@
         </div>
      </form>
      <div class="packing-list-container" v-if="finished">
+        <SummaryComponent />
        <ListComponent :weatherData=data />
      </div>
     </div>
@@ -21,7 +22,7 @@
 <script>
  /* eslint-disable */
 import ListComponent from "./ListComponent";
-import SummaryComponet from "./SummaryComponent"
+import SummaryComponent from "./SummaryComponent"
 import Datepicker from 'vuejs-datepicker';
 
 import { W_OK } from 'constants';
@@ -31,6 +32,7 @@ import moment from 'moment'
 export default {
     components: {
     ListComponent,
+    SummaryComponent,
     Datepicker
   },
     data(){
