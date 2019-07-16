@@ -1,5 +1,5 @@
 <template>
-<p>Summary Component</p>
+<p>{{  summary }}</p>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   data() {
     // Stuff goes here
     return {
-      summary: ""
+      summary: "It's a summary!"
     }
   }
 }
