@@ -7,23 +7,13 @@ Vue.use(VueRouter);
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-Vue.use(VueAxios, axios);
-
-// import moment from 'vue-moment';
-// Vue.use(moment);
 
 require('dotenv').config();
 /* eslint-disable */
 // console.log("The env key should be here:");
 // console.log(process.env.VUE_APP_SECRET);
 
-
-// Vue.use(require('vue-moment'));
-// import moment from 'vue-moment';
-// Vue.use(moment);
-
-// import moment from 'moment'
-// Vue.prototype.moment = moment
+Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
 

@@ -57,7 +57,7 @@ export default {
     methods: {
         customFormatter(date) {
           console.log("Inside Formatter");
-          const formattedDate = moment(date).format('MMMM Do YYYY, h:mm:ss a');
+          const formattedDate = moment(date).format('X');
           console.log(formattedDate);
           console.log("End of Formatter");
         },
@@ -94,6 +94,7 @@ export default {
                     // Get weather based on latitude and longitude
                     this.axios.get(getWeatherURL)
                     .then((weather) => {
+                        console.log("We did it!");
                         this.isolateConditions(weather, unixDates.length);
                     })
                     .catch((error) => {
@@ -136,6 +137,9 @@ export default {
             // const muhDate = Date.parse(this.query.until);
             // console.log(muhDate);
 
+        const untilDate = moment(this.query.until).toArray();
+    
+
         const fromDate = { 
             // Subtract 1 from month (because JavaScript counts months from 0)
             month: (this.query.from.split('-')[0]) - 1,
@@ -143,12 +147,12 @@ export default {
             year: this.query.from.split('-')[2]
             };
 
-        const untilDate = { 
-            // Subtract 1 from month (because JavaScript counts months from 0)
-            month: (this.query.until.split('-')[0]) - 1,
-            day: this.query.until.split('-')[1],
-            year: this.query.until.split('-')[2]
-            };
+        // const untilDate = { 
+        //     // Subtract 1 from month (because JavaScript counts months from 0)
+        //     month: (this.query.until.split('-')[0]) - 1,
+        //     day: this.query.until.split('-')[1],
+        //     year: this.query.until.split('-')[2]
+        //     };
 
         const unixDates = eachDay(
             new Date(fromDate.year, fromDate.month, fromDate.day),
