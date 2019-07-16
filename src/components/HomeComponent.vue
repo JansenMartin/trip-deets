@@ -21,17 +21,6 @@
        <ListComponent :weatherData=data />
      </div>
     </div>
-  <!-- <div class="row justify-content-center">
-      <div class="col-md-8">
-          <div class="card card-default">
-              <div class="card-header">Home Component</div>
-
-              <div class="card-body">
-                  I'm the Home Component component.
-              </div>
-          </div>
-      </div>
-  </div> -->
 </template>
 <script>
  /* eslint-disable */
@@ -40,7 +29,6 @@ import { W_OK } from 'constants';
 import { format, formatDistance, formatRelative, subDays, eachDay } from 'date-fns'
 import Datepicker from 'vuejs-datepicker';
 import moment from 'moment'
-// Vue.prototype.moment = moment
 
 export default {
     components: {
@@ -113,12 +101,6 @@ export default {
 
             const day = weather.data.daily.data[0];
 
-            // console.log(`Today's weather: ${day.icon}`);
-            // console.log("Temp High:")
-            // console.log(day.apparentTemperatureHigh);
-            // console.log("Temp Low");
-            // console.log(day.apparentTemperatureLow);
-
             todaysWeather.icon = day.icon;
             todaysWeather.high = day.apparentTemperatureHigh;
             todaysWeather.low = day.apparentTemperatureLow;
@@ -133,36 +115,25 @@ export default {
         },
         parseDateRange() {
 
-            // this.customFormatter(this.query.until);
-            // const muhDate = Date.parse(this.query.until);
-            // console.log(muhDate);
-    
-
-        
-        // const fromDate = { 
-        //     // Subtract 1 from month (because JavaScript counts months from 0)
-        //     month: (this.query.from.split('-')[0]) - 1,
-        //     day: this.query.from.split('-')[1],
-        //     year: this.query.from.split('-')[2]
-        //     };
-
+        // Use moment function to split date into an array
         const fromSplit = moment(this.query.from).toArray();
+        // Assign month, day and year to respective keys
         const fromDate = { 
-            // Subtract 1 from month (because JavaScript counts months from 0)
             month: fromSplit[1],
             day: fromSplit[2],
             year: fromSplit[0]
             };
 
+        // Use moment function to split date into an array
         const untilSplit = moment(this.query.until).toArray();
+        // Assign month, day and year to respective keys
         const untilDate = { 
-            // Subtract 1 from month (because JavaScript counts months from 0)
             month: untilSplit[1],
             day: untilSplit[2],
             year: untilSplit[0]
             };
 
-            console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
+        console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
 
         console.log(untilDate);
 
