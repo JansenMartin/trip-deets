@@ -2,6 +2,8 @@
 </template>
 
 <script>
+/* eslint-disable */
+
 </script>
 
 <style>
