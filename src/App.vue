@@ -2,7 +2,8 @@
 <div class="container">
   <!-- <p><OAuth provider="github" /></p> -->
    <header>
-     <h1>Trip Deets</h1>
+     <!-- <h1>Trip Deets</h1> -->
+     <img id="banner" src="https://urlzs.com/UUwdz">
      </header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
@@ -46,6 +47,12 @@ export default {
 </script>
 
 <style>
+
+header {
+  text-align: center;
+}
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
