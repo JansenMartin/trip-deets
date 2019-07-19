@@ -132,9 +132,9 @@ export default {
             year: untilSplit[0]
             };
 
-        console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
+        // console.log(`***** PARSING DATE FOR: ${this.query.until}.  IT'S NOW AN OBJECT: ${untilDate}`)
 
-        console.log(untilDate);
+        // console.log(untilDate);
 
         const unixDates = eachDay(
             new Date(fromDate.year, fromDate.month, fromDate.day),
@@ -143,7 +143,7 @@ export default {
               return Date.parse(date) / 1000;
           });
 
-          console.log(`There unix dates, here: ${unixDates}`)
+        //   console.log(`There unix dates, here: ${unixDates}`)
 
           this.getWeather(unixDates);
 
