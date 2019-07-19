@@ -59,7 +59,7 @@ export default {
 
             // API Keys
             const locationKey = process.env.VUE_APP_LOCATION;
-            const skyKey = process.env.VUE_APP_SKY;
+            // const skyKey = process.env.VUE_APP_SKY;
 
             // NESTED API CALLS (LocationIQ and Dark Sky)
             // Find latitude and longitude for a given place
@@ -76,12 +76,21 @@ export default {
                 console.log(`********* WEATHER REPORT FOR: ${location} *********`)
                 const lat = response.data[0].lat;
                 const lon = response.data[0].lon;
-                const tempProxy = 'https://cors-anywhere.herokuapp.com/';
+                // const tempProxy = 'https://cors-anywhere.herokuapp.com/';
+
 
                 for (let i = 0; i < unixDates.length; i += 1) {
-                    const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${unixDates[i]}`;
+                    // const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${unixDates[i]}`;
+                    // const getWeatherURL = `http://localhost:3000/api/v1/json`;
+                    const getWeatherURL = `https://whispering-everglades-96543.herokuapp.com/api/v1/json`;
                     // Get weather based on latitude and longitude
-                    this.axios.get(getWeatherURL)
+                    this.axios.get(getWeatherURL, {
+                      params: {
+                        lat: lat,
+                        lon: lon,
+                        time: unixDates[i]
+                      }
+                    })
                     .then((weather) => {
                         this.isolateConditions(weather, unixDates.length);
                     })
@@ -98,6 +107,7 @@ export default {
                 high: ""
             };
 
+            console.log(`INSIDE ISOLATECONDITIONS FUNCTION: ${weather}`);
             const day = weather.data.daily.data[0];
 
             todaysWeather.icon = day.icon;
@@ -113,6 +123,10 @@ export default {
 
         },
         parseDateRange() {
+
+        console.log("***** THIS IS THE MOMENT:")
+        const reformattedDate = moment(this.query.from).format('YYYY/MM/DD');
+        console.log(reformattedDate);
 
         // Use moment function to split date into an array
         const fromSplit = moment(this.query.from).toArray();
@@ -136,12 +150,17 @@ export default {
 
         // console.log(untilDate);
 
-        const unixDates = eachDay(
+         const unixDates = eachDay(
             new Date(fromDate.year, fromDate.month, fromDate.day),
             new Date(untilDate.year, untilDate.month, untilDate.day)
-          ).map((date) =>  {
-              return Date.parse(date) / 1000;
-          });
+          );
+
+        // const unixDates = eachDay(
+        //     new Date(fromDate.year, fromDate.month, fromDate.day),
+        //     new Date(untilDate.year, untilDate.month, untilDate.day)
+        //   ).map((date) =>  {
+        //       return Date.parse(date) / 1000;
+        //   });
 
         //   console.log(`There unix dates, here: ${unixDates}`)
 
