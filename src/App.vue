@@ -13,7 +13,8 @@
 
         <li class="nav-item">
           <!-- OAuth Component!! -->
-          <OAuth v-on:log-in="loggedIn = true, currentUser = $event" provider="github" />
+          <OAuth v-on:log-in="loggedIn = true, currentUser = $event"
+            v-on:log-out="loggedIn = false, currentUser = ''" provider="github" />
         </li>
         <!-- <li v-if="loggedIn" class="nav-item">
           <a class="nav-link" href="">Log Out</a>

@@ -26,6 +26,7 @@ export default {
       console.log("Logging out")
       this.loggedIn = false
       this.$session.destroy()
+      this.$emit('log-out');
     },
     Auth() {
    OAuth.initialize('gwBeKj4tkaHLFf7q0fcYIlbj2as');
