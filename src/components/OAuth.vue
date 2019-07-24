@@ -52,17 +52,6 @@ export default {
         let key = this.$session.get("id")
         console.log(key);
       })
-      // 2.  IF NO, THEN MAKE POST REQUEST
-      // 3.  IF EMAIL EXISTS, THEN CARRY ON LIKE NORMAL
-      //  this.axios.post('http://localhost:3000/user', {
-      //    name: me.name,
-      //    email: "symbologic@gmail.com"
-      // })
-      // .catch((error) => {
-      //   console.log(error);
-      // })
-      // console.log('HHHHHello there, ' + me.name)
-      // this.$emit('log-in', me.name);
     }).fail((error) => {
       console.error(error)
     });
