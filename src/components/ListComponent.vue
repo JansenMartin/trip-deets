@@ -7,8 +7,8 @@
       <!-- <li>{{ item }}</li> -->
       <ItemComponent :item=item />
     </ul>
+    <button class="btn btn-primary">Save List</button>
   </div>
- </div>
 </template>
 
 <script>
