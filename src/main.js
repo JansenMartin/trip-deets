@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import VueSession from 'vue-session'
 import VueRouter from 'vue-router';
+
 Vue.use(VueRouter);
+Vue.use(VueSession)
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
