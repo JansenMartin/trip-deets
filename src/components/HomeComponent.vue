@@ -81,8 +81,8 @@ export default {
 
                 for (let i = 0; i < unixDates.length; i += 1) {
                     // const getWeatherURL = `${tempProxy}https://api.darksky.net/forecast/${skyKey}/${lat},${lon},${unixDates[i]}`;
-                    const getWeatherURL = `http://localhost:3000/api/v1/json`;
-                    // const getWeatherURL = `https://whispering-everglades-96543.herokuapp.com/api/v1/json`;
+                    // const getWeatherURL = `http://localhost:3000/api/v1/json`;
+                    const getWeatherURL = `https://whispering-everglades-96543.herokuapp.com/api/v1/json`;
                     // Get weather based on latitude and longitude
                     this.axios.get(getWeatherURL, {
                       params: {
