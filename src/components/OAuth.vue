@@ -38,7 +38,7 @@ export default {
       // 1.  DOES EMAIL EXIST INSIDE DATABASE?
       this.axios.get('http://localhost:3000/user', {
         params: {
-          email: "loop@gmail.com"
+          email: me.email
         }
       })
       .then((response) => {
@@ -47,8 +47,20 @@ export default {
         if (response.data === null) {
           console.log("OH MAN, THAT USER DOESN'T EXIST IN OUR DATABASE")
            this.axios.post('http://localhost:3000/user', {
-             name: "Loosie Goosie",
-             email: "loop@gmail.com"
+             name: me.name,
+             email: me.email
+           })
+           .then((postData) => {
+             console.log("THIS IS MY POST DATA, YEESSSS:")
+             console.log(postData)
+
+            this.loggedIn = true;
+
+            this.$session.set("id",postData.data._id)
+            let key = this.$session.get("id")
+
+            this.$emit('log-in', postData.data.name);
+            // console.log(key);
            })
            .catch((error) => {
              console.log(error);
@@ -58,13 +70,20 @@ export default {
           console.log("The user already exists!!")
           console.log('HHHHHello there, ' + me.name)
           this.$emit('log-in', me.name);
-        }
 
         this.loggedIn = true;
 
         this.$session.set("id",response.data._id)
         let key = this.$session.get("id")
         console.log(key);
+        }
+
+        // this.loggedIn = true;
+
+        // this.$session.set("id",response.data._id)
+        // let key = this.$session.get("id")
+        // console.log(key);
+
       })
     }).fail((error) => {
       console.error(error)
