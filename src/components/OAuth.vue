@@ -24,6 +24,30 @@ export default {
     }).then((me) => {
       console.log("Calling to our API now....")
       // 1.  DOES EMAIL EXIST INSIDE DATABASE?
+      this.axios.get('http://localhost:3000/user', {
+        params: {
+          email: "loop@gmail.com"
+        }
+      })
+      .then((response) => {
+        // 2. IF THE EMAIL DOESN"T EXIST, MAKE A POST REQUEST
+        console.log(response.data);
+        if (response.data === null) {
+          console.log("OH MAN, THAT USER DOESN'T EXIST IN OUR DATABASE")
+           this.axios.post('http://localhost:3000/user', {
+             name: "Loosie Goosie",
+             email: "loop@gmail.com"
+           })
+           .catch((error) => {
+             console.log(error);
+           })
+         // 3. IF THE EMAIL EXISTS, PROCEED AS NORMAL
+        } else {
+          console.log("The user already exists!!")
+          console.log('HHHHHello there, ' + me.name)
+          this.$emit('log-in', me.name);
+        }
+      })
       // 2.  IF NO, THEN MAKE POST REQUEST
       // 3.  IF EMAIL EXISTS, THEN CARRY ON LIKE NORMAL
       //  this.axios.post('http://localhost:3000/user', {
@@ -33,8 +57,8 @@ export default {
       // .catch((error) => {
       //   console.log(error);
       // })
-      console.log('HHHHHello there, ' + me.name)
-      this.$emit('log-in', me.name);
+      // console.log('HHHHHello there, ' + me.name)
+      // this.$emit('log-in', me.name);
     }).fail((error) => {
       console.error(error)
     });
