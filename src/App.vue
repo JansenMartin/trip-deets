@@ -11,13 +11,13 @@
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
 
-        <li v-if="!loggedIn" class="nav-item">
+        <li class="nav-item">
           <!-- OAuth Component!! -->
           <OAuth v-on:log-in="loggedIn = true, currentUser = $event" provider="github" />
         </li>
-        <li v-if="loggedIn" class="nav-item">
+        <!-- <li v-if="loggedIn" class="nav-item">
           <a class="nav-link" href="">Log Out</a>
-        </li>
+        </li> -->
         <!-- <li class="nav-item" v-if="loggedIn">
           <a href="">I can render!</a>
         </li> -->

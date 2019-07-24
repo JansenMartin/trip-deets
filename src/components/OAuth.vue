@@ -1,7 +1,12 @@
 <template>
- <a class="nav-link" @click="Auth();" :class="class2">
- <span :class="class1"></span> Sign in with {{ provider }}
- </a>
+<div>
+  <a v-if="!loggedIn" class="nav-link" @click="Auth();" :class="class2">
+  <span :class="class1"></span> Sign in with {{ provider }}
+  </a>
+  <a @click="logOut()" class="nav-link" v-if="loggedIn">
+    Log out
+  </a>
+ </div>
 </template>
 
 <script>
@@ -13,9 +18,13 @@ export default {
     return {
     class1: "fa fa-" + this.provider,
     class2: "btn btn-block btn-social btn-" + this.provider,
+    loggedIn: false
     };
   },
   methods: {
+    logOut() {
+      console.log("Loggin out...");
+    },
     Auth() {
    OAuth.initialize('gwBeKj4tkaHLFf7q0fcYIlbj2as');
 
@@ -47,6 +56,8 @@ export default {
           console.log('HHHHHello there, ' + me.name)
           this.$emit('log-in', me.name);
         }
+
+        this.loggedIn = true;
 
         this.$session.set("id",response.data._id)
         let key = this.$session.get("id")
