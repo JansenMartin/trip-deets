@@ -7,7 +7,7 @@
       <!-- <li>{{ item }}</li> -->
       <ItemComponent :item=item />
     </ul>
-    <button class="btn btn-primary">Save List</button>
+    <button @click="saveList()" class="btn btn-primary">Save List</button>
   </div>
 </template>
 
@@ -133,8 +133,12 @@ export default {
         }
         
       this.listComplete = true;
-    }
+    },
+    saveList() {
+    console.log("Triggering saveList function")
+  }
   },
+ 
 }
 </script>
 
