@@ -47,6 +47,10 @@ export default {
           console.log('HHHHHello there, ' + me.name)
           this.$emit('log-in', me.name);
         }
+
+        this.$session.set("id",response.data._id)
+        let key = this.$session.get("id")
+        console.log(key);
       })
       // 2.  IF NO, THEN MAKE POST REQUEST
       // 3.  IF EMAIL EXISTS, THEN CARRY ON LIKE NORMAL
