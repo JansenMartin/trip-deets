@@ -69,7 +69,9 @@ export default {
         } else {
           console.log("The user already exists!!")
           console.log('HHHHHello there, ' + me.name)
-          this.$emit('log-in', me.name);
+          const user = { name: me.name, email: me.email }
+          this.$emit('log-in', user);
+          // this.$emit('log-in', me.email);
 
         this.loggedIn = true;
 

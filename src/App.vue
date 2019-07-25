@@ -25,7 +25,7 @@
         </li> -->
       </ul>
     </nav><br />
-    <p v-if="loggedIn">Welcome, {{ currentUser }}!</p>
+    <p v-if="loggedIn">Welcome, {{ currentUser.name }}!</p>
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -42,6 +42,7 @@ export default {
   name: 'app',
   data: {
     loggedIn: false,
+    // currentUser: { name: "", email: ""},
     currentUser: ""
   },
   components: {

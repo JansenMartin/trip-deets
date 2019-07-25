@@ -18,7 +18,7 @@ import ItemComponent from "./ItemComponent";
 
 export default {
   /* eslint-disable */
-  props: ["weatherData"],
+  props: ["weatherData", "userEmail"],
   created() {
       this.generateList();
   },
@@ -27,6 +27,7 @@ export default {
   },
   data(){
     return {
+      // email: userEmail,
       list: [],
       listComplete: false,
     }
@@ -154,8 +155,10 @@ export default {
     },
     saveList() {
     console.log("Triggering saveList function")
+    console.log(this.$props.userEmail)
+     const email = this.$props.userEmail
     // const email = "v.jansen.martin@gmail.com"
-     this.axios.put('http://localhost:3000/user?email=v.jansen.martin@gmail.com', {
+     this.axios.put(`http://localhost:3000/user?email=${email}`, {
             // list: [{item: "1 jacket", completed: false}]
             list: this.list
            })

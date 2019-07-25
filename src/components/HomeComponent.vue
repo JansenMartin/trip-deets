@@ -15,7 +15,7 @@
      </form>
      <div class="packing-list-container" v-if="finished">
         <SummaryComponent :weatherData=data />
-       <ListComponent :weatherData=data />
+       <ListComponent :weatherData=data :userEmail=this.$parent.currentUser.email />
      </div>
     </div>
 </template>
@@ -171,8 +171,8 @@ export default {
             this.finished = true;
         },
         test(event) {
-            console.log(this.query.until);
-            console.log(this.query.from);
+            console.log("Testing....")
+           console.log(this.$parent.currentUser.email);
         }
     }
 }
