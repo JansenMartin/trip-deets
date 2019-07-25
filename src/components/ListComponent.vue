@@ -5,7 +5,7 @@
   <!-- <div v-if="listComplete"> -->
    <ul class="packing-list" v-for="item in list">
       <!-- <li>{{ item }}</li> -->
-      <ItemComponent :item=item />
+      <ItemComponent :item=item.item />
     </ul>
     <button @click="saveList()" class="btn btn-primary">Save List</button>
   </div>
@@ -31,7 +31,9 @@ export default {
   },
   methods: {
     generateList() {
-        this.list.push("1 jacket");
+        const jacket = {item: "1 jacket",  completed: false}
+        this.list.push(jacket);
+        // this.list.push("1 jacket");
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],
@@ -83,12 +85,16 @@ export default {
         if (coldDays > 0) {
           // Add general 'one-off' items (like warm hat, coat, etc.)
           for (let i = 0; i < items.coldGeneral.length; i += 1) {
-            this.list.push(`1 ${items.coldGeneral[i]}`);
+            let item = {item: `1 ${items.coldGeneral[i]}`, completed: false };
+            this.list.push(item);
+            // this.list.push(`1 ${items.coldGeneral[i]}`);
           }
 
           // Add items that increment based on number of days (shirts, etc.)
           for (let i = 0; i < items.cold.length; i += 1) {
-            this.list.push(`${coldDays} ${items.cold[i]}`);
+            let item = {item: `${coldDays} ${items.cold[i]}`, completed: false }
+            this.list.push(item);
+            // this.list.push(`${coldDays} ${items.cold[i]}`);
           }
         }
 
@@ -105,37 +111,57 @@ export default {
         if (hotDays > 0) {
           // Add general 'one-off' items (like summer hat etc.)
           for (let i = 0; i < items.hotGeneral.length; i += 1) {
-            this.list.push(`1 ${items.hotGeneral[i]}`);
+            let item = {item: `1 ${items.hotGeneral[i]}`, completed: false}
+            this.list.push(item)
+            // this.list.push(`1 ${items.hotGeneral[i]}`);
           }
 
           // Add items that increment based on number of days (tank-tops, etc.)
           for (let i = 0; i < items.hot.length; i += 1) {
-            this.list.push(`${hotDays} ${items.hot[i]}`);
+            let item = {item: `${hotDays} ${items.hot[i]}`, completed: false};
+            this.list.push(item)
+            // this.list.push(`${hotDays} ${items.hot[i]}`);
           }
         }
 
         // If SNOW is true, add umbrella and snowboots
         if (snow) {
           for (let i = 0; i < items.snow.length; i += 1) {
-            this.list.push(`1 ${items.snow[i]}`);
+            let item = {item: `1 ${items.snow[i]}`, completed: false }
+            this.list.push(item)
+            // this.list.push(`1 ${items.snow[i]}`);
           }
         }
         // If ONLY RAIN is true, add umbrella and raincoat
         else if (rain && !snow) {
           for (let i = 0; i < items.rain.length; i += 1) {
-            this.list.push(`1 ${items.rain[i]}`);
+            let item = {item: `1 ${items.rain[i]}`, completed: false }
+            this.list.push(item);
+            // this.list.push(`1 ${items.rain[i]}`);
           }
         }
 
         // Add general daily items to the packing list (based on number of days)
         for (let i = 0; i < items.general.length; i += 1) {
-            this.list.push(`${this.weatherData.length} ${items.general[i]}`);
+          let item = {item: `${this.weatherData.length} ${items.general[i]}`, completed: false }
+          this.list.push(item);
+            // this.list.push(`${this.weatherData.length} ${items.general[i]}`);
         }
         
       this.listComplete = true;
     },
     saveList() {
     console.log("Triggering saveList function")
+    // const email = "v.jansen.martin@gmail.com"
+     this.axios.put('http://localhost:3000/user?email=v.jansen.martin@gmail.com', {
+            list: [{item: "1 jacket", completed: false}]
+           })
+           .then((response) => {
+             console.log(response);
+           })
+           .catch((error) => {
+             console.log(error);
+           })
   }
   },
  
