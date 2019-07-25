@@ -8,7 +8,7 @@
       <ItemComponent v-on:toggle-change=changeList($event)
       :item=item.item />
     </ul>
-    <button @click="saveList()" class="btn btn-primary">Save List</button>
+    <button v-if="userEmail" @click="saveList()" class="btn btn-primary">Save List</button>
     <!-- <OAuth v-on:log-in="loggedIn = true, currentUser = $event" -->
   </div>
 </template>
