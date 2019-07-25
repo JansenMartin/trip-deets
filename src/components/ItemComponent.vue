@@ -15,7 +15,10 @@
     },
     methods: {
       toggle() {
+          // console.log(this.item);
           this.isComplete = ! this.isComplete
+          this.$emit('toggle-change', this.item)
+          // this.$emit('log-in', postData.data.name);
       }
     }
   }

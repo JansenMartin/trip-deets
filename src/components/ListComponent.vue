@@ -5,9 +5,11 @@
   <!-- <div v-if="listComplete"> -->
    <ul class="packing-list" v-for="item in list">
       <!-- <li>{{ item }}</li> -->
-      <ItemComponent :item=item.item />
+      <ItemComponent v-on:toggle-change=changeList($event)
+      :item=item.item />
     </ul>
     <button @click="saveList()" class="btn btn-primary">Save List</button>
+    <!-- <OAuth v-on:log-in="loggedIn = true, currentUser = $event" -->
   </div>
 </template>
 
@@ -163,6 +165,23 @@ export default {
            .catch((error) => {
              console.log(error);
            })
+  },
+  changeList(event) {
+    console.log("Triggering Change List");
+    let i;
+    for (i = 0; this.list[i].item != event; i += 1 ) {
+      console.log("Not it...")
+    }
+
+    console.log(`I found it!  ${this.list[i].item}`)
+    console.log(`Current status: ${this.list[i].completed}`)
+    console.log("Now changing...")
+    
+    this.list[i].completed = !this.list[i].completed
+
+    console.log(`New status: ${this.list[i].completed}`)
+
+    // this.saveList();
   }
   },
  
