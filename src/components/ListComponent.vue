@@ -26,7 +26,7 @@ export default {
   data(){
     return {
       list: [],
-      listComplete: false
+      listComplete: false,
     }
   },
   methods: {
@@ -154,7 +154,8 @@ export default {
     console.log("Triggering saveList function")
     // const email = "v.jansen.martin@gmail.com"
      this.axios.put('http://localhost:3000/user?email=v.jansen.martin@gmail.com', {
-            list: [{item: "1 jacket", completed: false}]
+            // list: [{item: "1 jacket", completed: false}]
+            list: this.list
            })
            .then((response) => {
              console.log(response);
