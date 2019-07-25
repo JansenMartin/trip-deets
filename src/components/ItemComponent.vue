@@ -10,7 +10,7 @@
     props: ['item'],
     data () {
       return {
-        isComplete: !this.item
+        isComplete: this.completed
       }     
     },
     methods: {

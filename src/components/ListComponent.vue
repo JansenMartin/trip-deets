@@ -20,7 +20,10 @@ export default {
   /* eslint-disable */
   props: ["weatherData", "userEmail"],
   created() {
-      this.generateList();
+    this.generateList();
+    // if (weatherData) {
+    //   this.generateList();
+    // } 
   },
   components: {
     ItemComponent
