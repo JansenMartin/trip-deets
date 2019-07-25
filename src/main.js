@@ -20,6 +20,7 @@ Vue.use(VueAxios, axios);
 Vue.config.productionTip = false
 
 import HomeComponent from './components/HomeComponent.vue';
+import SavedListComponent from "./components/SavedListComponent";
 //Other component routes will go here
 
 const routes = [
@@ -27,7 +28,12 @@ const routes = [
     name: 'home',
     path: '/',
     component: HomeComponent
-  }
+  },
+  {
+    name: 'lists',
+    path: '/lists',
+    component: SavedListComponent
+   },
 ];
 
 const router = new VueRouter({ mode: 'history', routes: routes});

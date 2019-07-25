@@ -17,6 +17,11 @@
           <OAuth v-on:log-in="loggedIn = true, currentUser = $event"
             v-on:log-out="loggedIn = false, currentUser = ''" provider="github" />
         </li>
+        <li v-if="loggedIn" class="nav-item">
+          <!-- <router-link to="/lists" class="nav-link">Get Saved Lists</router-link> -->
+          <router-link to="/lists" class="nav-link">Get Saved Lists</router-link>
+          <!-- <a class="nav-link">Get Saved List</a> -->
+        </li>
         <!-- <li v-if="loggedIn" class="nav-item">
           <a class="nav-link" href="">Log Out</a>
         </li> -->
