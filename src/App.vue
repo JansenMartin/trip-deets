@@ -3,7 +3,8 @@
   <!-- <p><OAuth provider="github" /></p> -->
    <header>
      <!-- <h1>Trip Deets</h1> -->
-     <img id="banner" src="https://bit.ly/2YYWWYn">
+     <!-- <img id="banner" src="https://bit.ly/2YYWWYn"> -->
+     <img id="banner" src="./assets/TripDeetsLogo.png">
      </header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
