@@ -1,6 +1,7 @@
 <template>
   <li class="packing-list-item" @click="toggle" v-bind:class="{ complete: isComplete }">
-    {{item}}
+    {{item.item}}
+    <!-- item -->
   </li>
 </template>
 
@@ -10,13 +11,13 @@
     props: ['item'],
     data () {
       return {
-        isComplete: this.item.completed
+        isComplete: this.$props.item.completed
       }     
     },
     methods: {
       toggle() {
         console.log("SHOULD BE A BOOLEAN, YO:")
-        console.log(this.$props.item);
+        console.log(this.$props.item.completed);
           // console.log(this.item);
           this.isComplete = ! this.isComplete
           this.$emit('toggle-change', this.item)
