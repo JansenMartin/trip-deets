@@ -10,11 +10,13 @@
     props: ['item'],
     data () {
       return {
-        isComplete: this.completed
+        isComplete: this.item.completed
       }     
     },
     methods: {
       toggle() {
+        console.log("SHOULD BE A BOOLEAN, YO:")
+        console.log(this.$props.item);
           // console.log(this.item);
           this.isComplete = ! this.isComplete
           this.$emit('toggle-change', this.item)

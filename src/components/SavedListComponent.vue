@@ -4,9 +4,9 @@
 <div v-if="this.$parent.loggedIn" class="packing-list-container">
 <ul class="packing-list" 
   v-for="item in list" 
-  v-bind:key="item" >
+  v-bind:key="item.item" >
       <ItemComponent v-on:toggle-change=changeList($event)
-      :item=item.item />
+      :item=item />
 </ul>
 </div>
 
@@ -59,16 +59,16 @@ export default {
     console.log(this.$parent.currentUser.email)
      const email = this.$parent.currentUser.email
     // const email = "v.jansen.martin@gmail.com"
-     this.axios.put(`http://localhost:3000/user?email=${email}`, {
-            // list: [{item: "1 jacket", completed: false}]
-            list: this.list
-           })
-           .then((response) => {
-             console.log(response);
-           })
-           .catch((error) => {
-             console.log(error);
-           })
+    //  this.axios.put(`http://localhost:3000/user?email=${email}`, {
+    //         // list: [{item: "1 jacket", completed: false}]
+    //         list: this.list
+    //        })
+    //        .then((response) => {
+    //          console.log(response);
+    //        })
+    //        .catch((error) => {
+    //          console.log(error);
+    //        })
   },
       changeList(event) {
     console.log("Triggering Change List");
