@@ -3,7 +3,7 @@
   <a v-if="!loggedIn" class="nav-link" @click="Auth();" :class="class2">
   <span :class="class1"></span> Sign in with {{ provider }}
   </a>
-  <a @click="logOut()" class="nav-link" v-if="loggedIn">
+  <a v-if="loggedIn" @click="logOut()" class="nav-link" >
     Log out
   </a>
  </div>
@@ -34,6 +34,7 @@ export default {
    OAuth.popup(this.provider).then((provider) => {
       return provider.me()
     }).then((me) => {
+      this.loggedIn = true;
       console.log('HHHHHello there, ' + me.name)
       this.$emit('log-in', me.name);
       console.log("Calling to our API now....")
