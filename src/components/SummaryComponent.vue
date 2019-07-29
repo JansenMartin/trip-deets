@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable  -->
 <div>
-  <ul v-for="item in summary">
+  <ul class="summary" v-for="item in summary">
       <li>{{ item }}</li>
     </ul>
 </div>

@@ -201,6 +201,10 @@ export default {
     border: solid black 1px;
 } */
 
+.packing-list-container {
+  border: black solid 1px;
+}
+
 .packing-list li {
     padding-top: .5em;
     /* text-decoration: line-through; */
