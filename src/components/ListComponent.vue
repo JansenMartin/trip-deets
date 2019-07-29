@@ -108,8 +108,9 @@ export default {
         // If there are temperate days
         if (temperateDays > 0) {
           for (let i = 0; i < items.temperate.length; i += 1) {
+            let item = {item: `${temperateDays} ${items.temperate[i]}`, completed: false }
             // Add items marked for temperate days
-            this.list.push(`${temperateDays} ${items.temperate[i]}`);
+            this.list.push(item);
           }
         }
 
