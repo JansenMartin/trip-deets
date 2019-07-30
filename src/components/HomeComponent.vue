@@ -10,7 +10,7 @@
          <datepicker @selected="query.until = $event" @closed="test()" placeholder="Select Date"></datepicker>
          </section>
          <div class="form-group">
-          <button class="btn btn-primary">Submit</button>
+          <button class="btn btn-primary" id="submit-btn">Submit</button>
         </div>
      </form>
      <div class="packing-list-container" v-if="finished">
@@ -180,6 +180,17 @@ export default {
 </script>
 
 <style>
+#submit-btn {
+ /* background-color: #3DD1C0; */
+ color: white;
+ font-weight: bold;     
+ border: 0px;
+}
+
+#submit-btn:hover {
+   background-color: #3DD1C0;
+}
+
 .packing-list-container {
     max-width: 50%;
 }
