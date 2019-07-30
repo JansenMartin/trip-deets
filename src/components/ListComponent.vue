@@ -61,7 +61,6 @@ export default {
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],
-            // sleepwear: ["sets of pajamas"],
             coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],
             hotGeneral: ["summer hat", "bathing suit"],
             cold: ["long-sleeved shirts"],
