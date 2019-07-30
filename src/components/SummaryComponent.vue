@@ -1,6 +1,6 @@
 <template>
 <!-- eslint-disable  -->
-<div>
+<div class="summary">
   <ul v-for="item in summary">
       <li>{{ item }}</li>
     </ul>
@@ -59,7 +59,7 @@ export default {
         this.summary.push("Well, hey!  Looks pretty clear!  ");
       }
 
-      this.summary.push(`Your warmest day will be ${hottestTemp}F.`);  
+      this.summary.push(`Your warmest day will be ${hottestTemp}° F.`);  
       this.summary.push(`We recommend taking these things with you: `);
     }
   }
@@ -68,4 +68,10 @@ export default {
 </script>
 
 <style>
+.summary {
+  padding-top: 1.5vw;
+  padding-left: 3vw;
+  
+  /* font-weight: bold; */
+}
 </style>
