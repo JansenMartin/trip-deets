@@ -44,7 +44,7 @@ export default {
         this.list.push(jacket);
         // this.list.push("1 jacket");
         console.log("MUH DATA");
-        console.log(this.$props.weatherData)
+        console.log(this.$props.destination)
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],

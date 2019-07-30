@@ -15,7 +15,7 @@
      </form>
      <div class="packing-list-container" v-if="finished">
         <SummaryComponent :weatherData=data />
-       <ListComponent :weatherData=data :userEmail=this.$parent.currentUser.email />
+       <ListComponent :weatherData=data :userEmail=this.$parent.currentUser.email :destination=query.location />
      </div>
     </div>
 </template>
