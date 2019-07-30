@@ -9,7 +9,7 @@
       :item=item />
       <!-- :item=item.item -->
     </ul>
-    <button v-if="userEmail" @click="saveList()" class="btn btn-primary">Save List</button>
+    <button v-if="userEmail" @click="saveList()" class="btn btn-primary save-list-btn">Save List</button>
     <!-- <OAuth v-on:log-in="loggedIn = true, currentUser = $event" -->
   </div>
 </template>
@@ -241,4 +241,10 @@ export default {
     align-items: center;
     /* max-width: 100px; */
 }
+
+.save-list-btn {
+  margin-bottom: 3vw;
+  margin-left: 6.3vw;
+}
+
 </style>
