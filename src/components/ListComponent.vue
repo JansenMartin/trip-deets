@@ -48,8 +48,9 @@ export default {
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],
+            // sleepwear: ["pairs of pajamas"],
             coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],
-            hotGeneral: ["summer hat"],
+            hotGeneral: ["summer hat", "bathing suit"],
             cold: ["long-sleeved shirts"],
             temperate: ["t-shirts", "pairs of jeans"],
             hot: ["tank tops", "pairs of shorts"],
@@ -71,7 +72,7 @@ export default {
         let snow = false;
 
         // Iterate over the weather data, increment number of days based on HIGH
-        for (let i = 0; i < this.weatherData.length; i += 1) {
+        for (let i = 1; i < this.weatherData.length; i += 1) {
           const weather = this.weatherData[i];
 
           if (weather.icon === "rain") {
