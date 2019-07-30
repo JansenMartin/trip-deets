@@ -11,7 +11,7 @@
 </ul>
 </div>
 
-<p v-if="!this.$parent.loggedIn">Please log in to view your lists.</p>
+<p v-if="!this.$parent.loggedIn" class="alert">Please log in to view your lists.</p>
 </div>
 </template>
 
@@ -94,6 +94,12 @@ export default {
 </script>
 
 <style>
+.alert {
+  background-color: #ffd3d9;
+  padding: 1vw;
+  margin-top: -1.7vw;
+  margin-bottom: 1vw;
+}
 .saved-packing-list-container {
    max-width: 50%;
 }

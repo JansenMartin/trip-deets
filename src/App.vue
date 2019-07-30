@@ -30,7 +30,7 @@
         </li> -->
       </ul>
     </nav><br />
-    <p v-if="loggedIn">Welcome, {{ currentUser.name }}!</p>
+    <p v-if="loggedIn" class="greeting-container">Welcome, {{ currentUser.name }}!</p>
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -71,5 +71,13 @@ header {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.greeting-container {
+  background-color: #d3ffec;
+  padding: 1vw;
+  margin-top: -1.7vw;
+  margin-bottom: 1vw;
+  
 }
 </style>
