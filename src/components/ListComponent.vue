@@ -164,6 +164,8 @@ export default {
     },
     saveList() {
     console.log("Triggering saveList function")
+    this.list[0].destination = this.destination;
+    
     console.log(this.$props.userEmail)
      const email = this.$props.userEmail
     // const email = "v.jansen.martin@gmail.com"

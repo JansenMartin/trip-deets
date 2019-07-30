@@ -2,6 +2,7 @@
 <!-- /* eslint-disable */ -->
 <div>
 <div v-if="this.$parent.loggedIn" class="saved-packing-list-container">
+ <p v-if="this.list.length > 0"> Showing list for your trip to {{list[0].destination}}...</p>
 <ul class="saved-packing-list" 
   v-for="item in list" 
   v-bind:key="item.item" >
