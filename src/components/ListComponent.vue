@@ -9,7 +9,7 @@
       :item=item />
       <!-- :item=item.item -->
     </ul>
-    <button v-if="userEmail" @click="saveList()" class="btn btn-primary save-list-btn">Save List</button>
+    <button v-if="userEmail" @click="saveList()" class="btn btn-primary save-list-btn" id="save-btn">Save List</button>
     <!-- <OAuth v-on:log-in="loggedIn = true, currentUser = $event" -->
   </div>
 </template>
@@ -225,6 +225,12 @@ export default {
 /* .packing-list, form {
     border: solid black 1px;
 } */
+
+#save-btn {
+ color: white;
+ font-weight: bold;     
+ border: 0px;
+}
 
 .packing-list li {
     padding-top: .5em;
