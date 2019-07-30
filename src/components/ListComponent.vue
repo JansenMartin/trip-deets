@@ -16,6 +16,7 @@
 
 <script>
 import ItemComponent from "./ItemComponent";
+import SummaryComponent from "./SummaryComponent"
 
 export default {
   /* eslint-disable */
@@ -27,7 +28,8 @@ export default {
     // } 
   },
   components: {
-    ItemComponent
+    ItemComponent,
+    SummaryComponent
   },
   data(){
     return {
