@@ -1,11 +1,13 @@
 <template>
 <!-- eslint-disable  -->
 <div>
-   Hello
 <div class="summary">
  
-  <img src="src/assets/sunny.png">
-  <ul v-for="item in summary">
+  <img v-if="sunny" class="icon" src='../assets/sunny.png'>
+  <img v-if="cloudy" class="icon" src='../assets/cloudy.png'>
+  <img v-if="rain" class="icon" src='../assets/rain.png'>
+  <img v-if="snow" class="icon" src='../assets/snow.png'>
+  <ul class="summary-list" v-for="item in summary">
       <li>{{ item }}</li>
     </ul>
 </div>
@@ -23,7 +25,10 @@ export default {
   data() {
     // Stuff goes here
     return {
-      summary: []
+      summary: [],
+      sunny: false,
+      snow: false,
+      rain: false
     }
   },
   methods: {
@@ -51,17 +56,22 @@ export default {
           }
         }
 
+      
       if (rain && snow) {
         this.summary.push("Expect rain and snow during your stay. ");
+        this.snow = true;
       }
       else if (rain && !snow) {
         this.summary.push("Expect rain during your stay.  ");
+        this.rain = true;
       }
       else if (!rain && snow) {
         this.summary.push("Expect snow during your stay.  ");
+        this.snow = true;
       }
       else {
         this.summary.push("Well, hey!  Looks pretty clear!  ");
+        this.sunny = true;
       }
 
       this.summary.push(`Your warmest day will be ${hottestTemp}° F.`);  
@@ -75,8 +85,19 @@ export default {
 <style>
 .summary {
   padding-top: 1.5vw;
-  padding-left: 3vw;
-  
-  /* font-weight: bold; */
+  padding-left: 3vw;  
+ /* font-weight: bold; */
+}
+
+.summary-list {
+  list-style-type: circle;
+}
+
+img.icon {
+  margin-left: 8vw;
+  margin-bottom: 2vw;
+
+  max-height: 50%;
+  max-width: auto;
 }
 </style>
