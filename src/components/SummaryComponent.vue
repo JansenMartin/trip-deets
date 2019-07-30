@@ -1,9 +1,14 @@
 <template>
 <!-- eslint-disable  -->
+<div>
+   Hello
 <div class="summary">
+ 
+  <img src="src/assets/sunny.png">
   <ul v-for="item in summary">
       <li>{{ item }}</li>
     </ul>
+</div>
 </div>
 </template>
 
