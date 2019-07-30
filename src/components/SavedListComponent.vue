@@ -1,8 +1,8 @@
 <template>
 <!-- /* eslint-disable */ -->
 <div>
-<div v-if="this.$parent.loggedIn" class="packing-list-container">
-<ul class="packing-list" 
+<div v-if="this.$parent.loggedIn" class="saved-packing-list-container">
+<ul class="saved-packing-list" 
   v-for="item in list" 
   v-bind:key="item.item" >
       <ItemComponent v-on:toggle-change=changeList($event)
@@ -93,4 +93,16 @@ export default {
 </script>
 
 <style>
+.saved-packing-list-container {
+   max-width: 50%;
+}
+
+.saved-packing-list li {
+  /* color: red; */
+   padding-top: .5em;
+   margin-left: 3vw;
+    margin-top: 1vw;
+    display: inline-block;
+    align-items: center;
+}
 </style>
