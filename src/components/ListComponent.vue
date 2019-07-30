@@ -168,7 +168,7 @@ export default {
 
         // Add general daily items to the packing list (based on number of days)
         for (let i = 0; i < items.general.length; i += 1) {
-          let item = {item: `${this.weatherData.length} ${items.general[i]}`, completed: false }
+          let item = {item: `${this.weatherData.length - 1} ${items.general[i]}`, completed: false }
           this.list.push(item);
             // this.list.push(`${this.weatherData.length} ${items.general[i]}`);
         }
