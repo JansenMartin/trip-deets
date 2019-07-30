@@ -41,14 +41,27 @@ export default {
   methods: {
     generateList() {
         const jacket = {item: "1 jacket",  completed: false}
+        const PJNum = Math.round(this.weatherData.length / 4)
+
+        let pairs;
+        if (PJNum > 1) {
+          pairs = 'pairs of'
+        }
+        else {
+          pairs = 'pair of'
+        }
+
+        const pajamas = {item: `${PJNum} ${pairs} pajamas`}
+
         this.list.push(jacket);
+        this.list.push(pajamas);
         // this.list.push("1 jacket");
         console.log("MUH DATA");
         console.log(this.$props.destination)
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],
-            // sleepwear: ["pairs of pajamas"],
+            // sleepwear: ["sets of pajamas"],
             coldGeneral: ["coat", "warm hat", "pair of gloves/mittens", "sweater"],
             hotGeneral: ["summer hat", "bathing suit"],
             cold: ["long-sleeved shirts"],
