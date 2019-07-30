@@ -16,11 +16,11 @@
 
 <script>
 import ItemComponent from "./ItemComponent";
-import SummaryComponent from "./SummaryComponent"
+// import SummaryComponent from "./SummaryComponent"
 
 export default {
   /* eslint-disable */
-  props: ["weatherData", "userEmail"],
+  props: ["weatherData", "userEmail", "destination"],
   created() {
     this.generateList();
     // if (weatherData) {
@@ -29,7 +29,7 @@ export default {
   },
   components: {
     ItemComponent,
-    SummaryComponent
+    // SummaryComponent
   },
   data(){
     return {
@@ -43,6 +43,8 @@ export default {
         const jacket = {item: "1 jacket",  completed: false}
         this.list.push(jacket);
         // this.list.push("1 jacket");
+        console.log("MUH DATA");
+        console.log(this.$props.weatherData)
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],
