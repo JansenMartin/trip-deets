@@ -169,10 +169,12 @@ export default {
            })
            .then((response) => {
              console.log(response);
+             this.alertDisplay();
            })
            .catch((error) => {
              console.log(error);
            })
+
   },
   changeList(event) {
     console.log("Triggering Change List");
@@ -189,8 +191,12 @@ export default {
 
     console.log(`New status: ${this.list[i].completed}`)
 
-    this.saveList();
-  }
+    // this.saveList();
+  },
+   alertDisplay() {
+        // $swal function calls SweetAlert into the application with the specified configuration.
+        this.$swal('Saved!', 'Successfully saved your list', 'success');
+      }
   },
  
 }

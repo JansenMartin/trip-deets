@@ -3,9 +3,11 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import VueSession from 'vue-session'
 import VueRouter from 'vue-router';
+import VueSweetalert2 from 'vue-sweetalert2';
 
 Vue.use(VueRouter);
 Vue.use(VueSession)
+Vue.use(VueSweetalert2);
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
