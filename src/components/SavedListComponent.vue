@@ -23,10 +23,6 @@ export default {
   /* eslint-disable */
   created() { 
       this.retrieveList();
-    // this.generateList();
-    // if (weatherData) {
-    //   this.generateList();
-    // } 
   },
   components: {
     ItemComponent
@@ -43,8 +39,6 @@ export default {
         if (!this.$parent.loggedIn) {
           this.$router.push('/')
         }
-        console.log("HAVE AT THEE!!")
-        // console.log(this.$parent.currentUser.email)
         const email = this.$parent.currentUser.email
         this.axios.get('http://localhost:3000/user', {
           params: {
@@ -57,12 +51,8 @@ export default {
         })
       },
       saveList() {
-    console.log("Triggering saveList function")
-    console.log(this.$parent.currentUser.email)
      const email = this.$parent.currentUser.email
-    // const email = "v.jansen.martin@gmail.com"
      this.axios.put(`http://localhost:3000/user?email=${email}`, {
-            // list: [{item: "1 jacket", completed: false}]
             list: this.list
            })
            .then((response) => {
@@ -106,7 +96,6 @@ export default {
 }
 
 .saved-packing-list li {
-  /* color: red; */
    padding-top: .5em;
    margin-left: 3vw;
     margin-top: 1vw;
