@@ -1,9 +1,6 @@
 <template>
 <div class="container">
-  <!-- <p><OAuth provider="github" /></p> -->
    <header>
-     <!-- <h1>Trip Deets</h1> -->
-     <!-- <img id="banner" src="https://bit.ly/2YYWWYn"> -->
      <img id="banner" src="./assets/TripDeetsLogo.png">
      </header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -18,16 +15,8 @@
             v-on:log-out="loggedIn = false, currentUser = ''" provider="github" />
         </li>
         <li v-if="loggedIn" class="nav-item">
-          <!-- <router-link to="/lists" class="nav-link">Get Saved Lists</router-link> -->
           <router-link to="/lists" class="nav-link">Get Saved Lists</router-link>
-          <!-- <a class="nav-link">Get Saved List</a> -->
         </li>
-        <!-- <li v-if="loggedIn" class="nav-item">
-          <a class="nav-link" href="">Log Out</a>
-        </li> -->
-        <!-- <li class="nav-item" v-if="loggedIn">
-          <a href="">I can render!</a>
-        </li> -->
       </ul>
     </nav><br />
     <p v-if="loggedIn" class="greeting-container">Welcome, {{ currentUser.name }}!</p>
@@ -47,7 +36,6 @@ export default {
   name: 'app',
   data: {
     loggedIn: false,
-    // currentUser: { name: "", email: ""},
     currentUser: ""
   },
   components: {
