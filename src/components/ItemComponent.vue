@@ -1,7 +1,6 @@
 <template>
   <li class="packing-list-item" @click="toggle" v-bind:class="{ complete: isComplete }">
     {{item.item}}
-    <!-- item -->
   </li>
 </template>
 
@@ -16,12 +15,8 @@
     },
     methods: {
       toggle() {
-        console.log("SHOULD BE A BOOLEAN, YO:")
-        console.log(this.$props.item.completed);
-          // console.log(this.item);
           this.isComplete = ! this.isComplete
           this.$emit('toggle-change', this.item)
-          // this.$emit('log-in', postData.data.name);
       }
     }
   }
@@ -29,7 +24,6 @@
 
 <style>
   .packing-list-item {
-      /* display: inline-block; */
       border: 1px black solid;
       border-radius: 10px;
       text-align: center;
@@ -38,9 +32,6 @@
       padding: 1em;
       font-weight: 600;
       transition-duration: .25s;
-      /* max-width: 10em; */
-
-      /* margin: 0px; */  
   }
 
   .packing-list-item:hover {
