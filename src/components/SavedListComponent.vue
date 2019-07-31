@@ -29,9 +29,7 @@ export default {
   },
   data(){
     return {
-      // email: userEmail,
       list: [],
-    //   listComplete: false,
     }
   },
   methods: {
@@ -63,20 +61,12 @@ export default {
            })
   },
       changeList(event) {
-    console.log("Triggering Change List");
     let i;
     for (i = 0; this.list[i].item != event.item; i += 1 ) {
-      console.log("Not it...")
-      console.log(event.item);
     }
 
-    console.log(`I found it!  ${this.list[i]}`)
-    console.log(`Current status: ${this.list[i].completed}`)
-    console.log("Now changing...")
-    
     this.list[i].completed = !this.list[i].completed
 
-    console.log(`New status: ${this.list[i].completed}`)
 
     this.saveList();
   }
