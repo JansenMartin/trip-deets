@@ -45,10 +45,7 @@ export default {
     },
     methods: {
         customFormatter(date) {
-          console.log("Inside Formatter");
           const formattedDate = moment(date).format('X');
-          console.log(formattedDate);
-          console.log("End of Formatter");
         },
         getWeather(unixDates){
             console.log(`******** GETTING WEATHER FOR ${unixDates}`)
@@ -125,9 +122,8 @@ export default {
         },
         parseDateRange() {
 
-        console.log("***** THIS IS THE MOMENT:")
-        const reformattedDate = moment(this.query.from).format('YYYY/MM/DD');
-        console.log(reformattedDate);
+        // const reformattedDate = moment(this.query.from).format('YYYY/MM/DD');
+        // console.log(reformattedDate);
 
         // Use moment function to split date into an array
         const fromSplit = moment(this.query.from).toArray();
