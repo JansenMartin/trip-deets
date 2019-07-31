@@ -23,7 +23,6 @@ export default {
       this.buildSummary();
   },
   data() {
-    // Stuff goes here
     return {
       summary: [],
       sunny: false,
@@ -43,16 +42,13 @@ export default {
 
           if (weather.icon === "rain") {
               rain = true;
-            //   this.summary += "Expect rain.  ";
           }
           else if (weather.icon === "snow" || weather.icon === "sleet") {
               snow = true;
-            //   this.summary += "Expect snowy weather.  ";
           }
           
           if (weather.high > hottestTemp) {
               hottestTemp = weather.high
-            //   this.summary += ` The warmest day will be ${hottestTemp}F.  `
           }
         }
 
@@ -86,7 +82,6 @@ export default {
 .summary {
   padding-top: 1.5vw;
   padding-left: 3vw;  
- /* font-weight: bold; */
 }
 
 .summary-list {
