@@ -23,17 +23,12 @@ export default {
   props: ["weatherData", "userEmail", "destination"],
   created() {
     this.generateList();
-    // if (weatherData) {
-    //   this.generateList();
-    // } 
   },
   components: {
     ItemComponent,
-    // SummaryComponent
   },
   data(){
     return {
-      // email: userEmail,
       list: [],
       listComplete: false,
     }
@@ -55,9 +50,6 @@ export default {
 
         this.list.push(jacket);
         this.list.push(pajamas);
-        // this.list.push("1 jacket");
-        console.log("MUH DATA");
-        console.log(this.$props.destination)
 
         const items = {
             general: ["pairs of socks", "sets of underwear"],
@@ -176,12 +168,9 @@ export default {
       this.listComplete = true;
     },
     saveList() {
-    console.log("Triggering saveList function")
     this.list[0].destination = this.destination;
     
-    console.log(this.$props.userEmail)
      const email = this.$props.userEmail
-    // const email = "v.jansen.martin@gmail.com"
      this.axios.put(`http://localhost:3000/user?email=${email}`, {
             // list: [{item: "1 jacket", completed: false}]
             list: this.list
@@ -196,21 +185,11 @@ export default {
 
   },
   changeList(event) {
-    console.log("Triggering Change List");
     let i;
     for (i = 0; this.list[i].item != event.item; i += 1 ) {
-      console.log("Not it...")
     }
-
-    console.log(`I found it!  ${this.list[i].item}`)
-    console.log(`Current status: ${this.list[i].completed}`)
-    console.log("Now changing...")
     
     this.list[i].completed = !this.list[i].completed
-
-    console.log(`New status: ${this.list[i].completed}`)
-
-    // this.saveList();
   },
    alertDisplay() {
         // $swal function calls SweetAlert into the application with the specified configuration.
@@ -222,24 +201,16 @@ export default {
 </script>
 
 <style>
-/* .packing-list, form {
-    border: solid black 1px;
-} */
 
 .packing-list li {
     padding-top: .5em;
-    /* text-decoration: line-through; */
 }
 
-.line-through {
-    /* Something here */
-}
 .packing-list {
     margin-left: 3vw;
     margin-top: 1vw;
     display: inline-block;
     align-items: center;
-    /* max-width: 100px; */
 }
 
 .save-list-btn {
